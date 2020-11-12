@@ -9,7 +9,9 @@
 import UIKit
 
 class PostViewController: UIViewController {
-
+    
+    var post : Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

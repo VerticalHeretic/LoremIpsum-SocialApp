@@ -10,6 +10,10 @@ import UIKit
 
 class CommentsTableViewCell: UITableViewCell {
 
+    //MARK: Properties
+    @IBOutlet weak var nameLabel : UILabel!
+    @IBOutlet weak var bodyLabel : UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

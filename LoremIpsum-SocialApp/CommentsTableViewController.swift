@@ -10,9 +10,21 @@ import UIKit
 
 class CommentsTableViewController: UITableViewController {
 
+    //MARK: Properties
+    var comments : [Comment] = []{
+        didSet
+        {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = self
+        tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,18 +41,30 @@ class CommentsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return comments.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        
+        let cellIdentifier = "CommentsTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CommentsTableViewCell else {
+            fatalError("The dequeue cell is not an instance of \(cellIdentifier)")
+            }
+        
+        let comment = comments[indexPath.row]
+        
+        cell.nameLabel.text = comment.name
+        cell.bodyLabel.text = comment.body
+        
+        cell.selectionStyle = .none
+        
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class PostsTableViewController: UITableViewController {
 
     //MARK: Properties
@@ -53,21 +54,14 @@ class PostsTableViewController: UITableViewController {
             self.comments = comments
         }
         tableView.dataSource = self
+        
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+       
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
+    // MARK: - Table view data 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return posts.count
@@ -82,12 +76,15 @@ class PostsTableViewController: UITableViewController {
             fatalError("The dequeue cell is not an instance of \(cellIdentifier)")
             }
 
+        
         let post = posts[indexPath.row]
         let user = findUserByUserId(UserId: post.userId)
         cell.titleLabel.text = post.title
         cell.bodyLabel.text = post.body
         cell.userLabel.text = user.username
         cell.commentsCountLabel.text = String(commentsCount(PostId: post.id))
+        
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -127,15 +124,55 @@ class PostsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+        switch(segue.identifier ?? "") {
+        case "fromPostCommentsSegue":
+            guard let commentsVC = segue.destination as?
+                CommentsTableViewController else {
+                    fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+            commentsVC.comments = self.comments
+        case "fromPostUserSegue":
+            guard let userVC = segue.destination as?
+                UserDetailsViewController else {
+                    fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+            guard let selectedPostCell = sender as? PostsTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedPostCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            userVC.user = findUserByUserId(UserId: posts[indexPath.row].userId)
+        case "postDetailSegue": 
+            guard let postVC = segue.destination as?
+                PostViewController else {
+                    fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+            guard let selectedPostCell = sender as? PostsTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedPostCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            postVC.post = posts[indexPath.row]
+        default:
+            fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
+        
+        }
     }
-    */
+    
+        @IBAction func CommentsTap(_ sender: UIButton) {
+            performSegue(withIdentifier: "fromPostCommentsSegue", sender: self)
+        }
+        
+        @IBAction func UserImageTap(_ sender: Any) {
+            performSegue(withIdentifier: "fromPostUserSegue", sender: self)
+        }
     
     //MARK: Supporting Methods
     
@@ -159,4 +196,16 @@ class PostsTableViewController: UITableViewController {
         return counter
     }
     
+    @objc func tapclick(){
+        print("This works for me")
+        let user = storyboard?.instantiateViewController(withIdentifier: "IDUserDetailsViewController")
+        navigationController?.pushViewController(user!, animated: true)
+    }
+    
+    
+  
 }
+
+
+
+
