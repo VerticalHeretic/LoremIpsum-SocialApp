@@ -1,5 +1,5 @@
 //
-//  PostsTableViewCell.swift
+//  CommentsTableViewCell.swift
 //  LoremIpsum-SocialApp
 //
 //  Created by Lukasz Stachnik on 12/11/2020.
@@ -8,15 +8,7 @@
 
 import UIKit
 
-class PostsTableViewCell: UITableViewCell {
-    
-    //MARK: Properties
-    @IBOutlet weak var titleLabel : UILabel!
-    @IBOutlet weak var bodyLabel : UILabel!
-    @IBOutlet weak var userLabel : UILabel!
-    @IBOutlet weak var userImage : UIImageView!
-    @IBOutlet weak var commentsCountLabel : UILabel!
-    @IBOutlet weak var commentsIcon : UIImageView!
+class CommentsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

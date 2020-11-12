@@ -10,9 +10,50 @@ import UIKit
 
 class PostsTableViewController: UITableViewController {
 
+    //MARK: Properties
+    var posts : [Post] = []
+    {
+        didSet
+        {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    var users : [User] = []
+    {
+       didSet
+        {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    var comments : [Comment] = []
+    {
+        didSet
+        {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
 
+        Api().fetchUsers { users in
+            self.users = users
+        }
+        Api().fetchPostsData{ posts in
+            self.posts = posts
+        }
+        Api().fetchComments { comments in
+            self.comments = comments
+        }
+        tableView.dataSource = self
+        super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -22,25 +63,34 @@ class PostsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return posts.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cellIdentifier = "PostsTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostsTableViewCell else {
+            fatalError("The dequeue cell is not an instance of \(cellIdentifier)")
+            }
 
-        // Configure the cell...
-
+        let post = posts[indexPath.row]
+        let user = findUserByUserId(UserId: post.userId)
+        cell.titleLabel.text = post.title
+        cell.bodyLabel.text = post.body
+        cell.userLabel.text = user.username
+        cell.commentsCountLabel.text = String(commentsCount(PostId: post.id))
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,5 +136,27 @@ class PostsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    //MARK: Supporting Methods
+    
+    //TODO: Look on this function deeper while it sometimes do not hit the time and indexes out of range
+    func findUserByUserId(UserId:Int) -> User{
+        for user in users {
+            if(user.id == UserId){
+                return user
+            }
+        }
+        return users[0]
+    }
+    
+    func commentsCount(PostId:Int) -> Int{
+        var counter = 0
+        for comment in comments {
+            if(comment.postId == PostId){
+                counter += 1
+            }
+        }
+        return counter
+    }
+    
 }
