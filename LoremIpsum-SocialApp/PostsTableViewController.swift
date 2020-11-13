@@ -83,7 +83,6 @@ class PostsTableViewController: UITableViewController {
         cell.bodyLabel.text = post.body
         cell.userLabel.text = user.username
         cell.commentsCountLabel.text = String(commentsCount(PostId: post.id))
-        
         cell.selectionStyle = .none
         return cell
     }
@@ -135,6 +134,7 @@ class PostsTableViewController: UITableViewController {
                     fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
             commentsVC.comments = self.comments
+            
         case "fromPostUserSegue":
             guard let userVC = segue.destination as?
                 UserDetailsViewController else {
@@ -160,6 +160,7 @@ class PostsTableViewController: UITableViewController {
                 fatalError("The selected cell is not being displayed by the table")
             }
             postVC.post = posts[indexPath.row]
+            
         default:
             fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
         

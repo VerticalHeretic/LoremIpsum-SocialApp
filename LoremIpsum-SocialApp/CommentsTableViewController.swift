@@ -24,7 +24,7 @@ class CommentsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.dataSource = self
-        tableView.reloadData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
