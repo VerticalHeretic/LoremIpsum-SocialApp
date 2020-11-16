@@ -49,11 +49,11 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Api().fetchPostsData{ posts in
-            self.posts = posts
-        }
         Api().fetchUsers{ users in
             self.users = users
+        }
+        Api().fetchPostsData{ posts in
+            self.posts = posts
         }
         Api().fetchComments{ comments in
             self.comments = comments
@@ -102,11 +102,20 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
                 PostViewController else {
                      fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
+            guard let selectedPostCell = sender as? PostsTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedPostCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            postVC.post = posts[indexPath.row]
         case "fromPostUserDetailsSegue":
             guard let userVC = segue.destination as?
                 UserDetailsViewController else {
                      fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
+            userVC.user = findUserByUserId(UserId: posts[postPath.row].userId)
+            
         default:
             fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
         
@@ -145,7 +154,7 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
         return postComments
     }
     
-    func btnCommentsTapped(cell: PostsTableViewCell){
+    func btnPostTapped(cell: PostsTableViewCell){
         let indexPath = self.tableView.indexPath(for: cell)
         print(indexPath!.row)
         self.postPath = indexPath

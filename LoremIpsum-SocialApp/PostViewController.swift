@@ -10,8 +10,17 @@ import UIKit
 
 class PostViewController: UIViewController {
 
+    //MARK: Properties
+    var post : Post!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.titleLabel.text = self.post.title
+        self.bodyLabel.text = self.post.body
 
         // Do any additional setup after loading the view.
     }

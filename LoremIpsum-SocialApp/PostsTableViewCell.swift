@@ -9,10 +9,12 @@
 import UIKit
 
 protocol PostsCellDelegate: AnyObject {
-    func btnCommentsTapped(cell: PostsTableViewCell)
+    func btnPostTapped(cell: PostsTableViewCell)
 }
 
 class PostsTableViewCell: UITableViewCell {
+    
+    //MARK: Properties
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
@@ -32,9 +34,12 @@ class PostsTableViewCell: UITableViewCell {
     }
         
     @IBAction func btnCommentsTapped(sender: UIButton) {
-        delegate?.btnCommentsTapped(cell: self)
+        delegate?.btnPostTapped(cell: self)
     }
-
+    
+    @IBAction func btnUserTapped(sender: UIButton) {
+        delegate?.btnPostTapped(cell: self)
+    }
     
     
 }
