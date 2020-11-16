@@ -40,6 +40,4 @@ class PostsTableViewCell: UITableViewCell {
     @IBAction func btnUserTapped(sender: UIButton) {
         delegate?.btnPostTapped(cell: self)
     }
-    
-    
 }

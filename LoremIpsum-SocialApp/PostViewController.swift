@@ -19,21 +19,26 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Post: \(self.post.id)"
         self.titleLabel.text = self.post.title
         self.bodyLabel.text = self.post.body
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+       //MARK: Orientation
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .portrait
+        } else {
+            return .all
+        }
     }
-    */
+    
+    
+
+    
+
 
 }

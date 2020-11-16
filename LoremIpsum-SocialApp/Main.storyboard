@@ -284,7 +284,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AO9-2T-2dG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Dme-xA-yJr"/>
+                    <navigationItem key="navigationItem" id="Dme-xA-yJr">
+                        <barButtonItem key="rightBarButtonItem" title="Photos" id="udC-iz-Yik"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bodyLabel" destination="UMD-lC-0pb" id="pjO-LV-Qgr"/>
                         <outlet property="titleLabel" destination="5mI-Ge-7f0" id="xSw-vV-YEF"/>
