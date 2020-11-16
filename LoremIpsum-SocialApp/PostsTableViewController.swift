@@ -10,30 +10,72 @@ import UIKit
 
 class PostsTableViewController: UITableViewController {
 
-    var Posts = [Post]()
+    //MARK: Properties
+    var posts : [Post] = []
+    {
+        didSet
+        {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    var users : [User] = []
+       {
+          didSet
+           {
+               DispatchQueue.main.async {
+                   self.tableView.reloadData()
+               }
+           }
+       }
+    
+    var comments : [Comment] = []
+       {
+           didSet
+           {
+               DispatchQueue.main.async {
+                   self.tableView.reloadData()
+               }
+           }
+       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let fetchingFunction = { (fetchedPostList: [Post]) in
-            self.Posts = fetchedPostList
-            self.tableView.reloadData()
+
+        Api().fetchPostsData{ posts in
+            self.posts = posts
         }
-        
-        Api.shared.getPosts(completition:  fetchingFunction)
+        Api().fetchUsers{ users in
+            self.users = users
+        }
+        Api().fetchComments{ comments in
+            self.comments = comments
+        }
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Posts.count
+        return posts.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostsTableViewCell", for: indexPath)
-
-        let post = Posts[indexPath.row]
+        
+        let cellIdentifier = "PostsTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostsTableViewCell else {
+            fatalError("The dequeue cell is not an instance of \(cellIdentifier)")
+        }
+        let post = posts[indexPath.row]
+        
+        cell.titleLabel.text = post.title
+        cell.bodyLabel.text = post.body
+        cell.userLabel.text = findUserByUserId(UserId: post.userId).username
+        cell.commentsCount.text = String(commentsCount(PostId: post.id))
+        
         
         return cell
         }
@@ -45,6 +87,28 @@ class PostsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+    }
+    
+    //MARK: Supporting Methods
+    
+    //TODO: Look on this function deeper while it sometimes do not hit the time and indexes out of range
+    func findUserByUserId(UserId:Int) -> User{
+        for user in users {
+            if(user.id == UserId){
+                return user
+            }
+        }
+        return users[0]
+    }
+    
+    func commentsCount(PostId:Int) -> Int{
+        var counter = 0
+        for comment in comments {
+            if(comment.postId == PostId){
+                counter += 1
+            }
+        }
+        return counter
     }
     
 
