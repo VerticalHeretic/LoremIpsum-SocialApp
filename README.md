@@ -1,5 +1,5 @@
 # LoremIpsum-SocialApp
-Clone of my [previouse project](https://github.com/LSWarss/ing_project) made in cooperation with ING, but right now as a first project made with Swift on iOS.
+Clone of my [previous project](https://github.com/LSWarss/ing_project) made in cooperation with ING, but right now as a first project made with Swift on iOS.
 
 ## What the apps is about
 
