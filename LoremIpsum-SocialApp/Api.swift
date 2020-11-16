@@ -103,5 +103,48 @@ class Api {
             }.resume()
         }
     }
-    
+    func fetchPhotosWithId(AlbumId: Int, completionHandler : @escaping([Photo]) -> Void){
+        
+        if let urlToServer = URL.init(string: "https://jsonplaceholder.typicode.com/photos/albumId=\(AlbumId)") {
+            
+            let tasks = URLSession.shared.dataTask(with: urlToServer) { (data, response, error) in
+                
+                // This means -> If you cannot unwrap the variable continue, and if you unwrapped it just return
+                guard let data = data else {return}
+                           
+                do {
+                            
+                    let photosData = try JSONDecoder().decode([Photo].self, from: data)
+                    completionHandler(photosData)
+                    
+                }
+                catch {
+                    let error = error
+                    print(error.localizedDescription)
+                    }
+            }.resume()
+        }
+    }
+    func fetchAlbumsWithUserId(UserId: Int, completionHandler : @escaping([Album]) -> Void){
+           
+           if let urlToServer = URL.init(string: "https://jsonplaceholder.typicode.com/albums/userId=\(UserId)") {
+               
+               let tasks = URLSession.shared.dataTask(with: urlToServer) { (data, response, error) in
+                   
+                   // This means -> If you cannot unwrap the variable continue, and if you unwrapped it just return
+                   guard let data = data else {return}
+                              
+                   do {
+                               
+                       let albumsData = try JSONDecoder().decode([Album].self, from: data)
+                       completionHandler(albumsData)
+                       
+                   }
+                   catch {
+                       let error = error
+                       print(error.localizedDescription)
+                       }
+               }.resume()
+           }
+       }
 }

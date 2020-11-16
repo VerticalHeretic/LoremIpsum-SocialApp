@@ -30,6 +30,8 @@ class UserDetailsViewController: UIViewController {
         self.phoneLabel.text = self.user.phone
         self.websiteLabel.text = self.user.website
         
+        self.navigationItem.title = "User: \(self.user.username)"
+        
         print("Lat: \(Double(user.address.geo.lat))!")
         print("Long: \(Double(user.address.geo.lng))!")
         let centerLocation = CLLocationCoordinate2DMake(Double(user.address.geo.lat)!, Double(user.address.geo.lng)!)
@@ -49,6 +51,22 @@ class UserDetailsViewController: UIViewController {
             return .portrait
         } else {
             return .all
+        }
+    }
+    
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       switch(segue.identifier ?? "") {
+        case "fromUserToPhotos":
+            guard let photosVC = segue.destination as?
+                PhotosCollectionViewController else {
+                    fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+            photosVC.user = self.user
+        default:
+            fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
+        
         }
     }
     

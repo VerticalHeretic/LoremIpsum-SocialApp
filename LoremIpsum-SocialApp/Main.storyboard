@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -234,7 +235,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ESu-dC-ri1"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LGr-0p-xAw"/>
+                    <navigationItem key="navigationItem" id="LGr-0p-xAw">
+                        <barButtonItem key="rightBarButtonItem" title="Photos" id="udC-iz-Yik">
+                            <connections>
+                                <segue destination="fhM-rN-naf" kind="presentation" identifier="fromUserToPhotos" id="8Qp-EI-OCD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailLabel" destination="vVU-CW-B7n" id="Khs-xL-ogH"/>
                         <outlet property="map" destination="Ryq-83-Jl7" id="wWF-VS-uLx"/>
@@ -284,9 +291,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AO9-2T-2dG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Dme-xA-yJr">
-                        <barButtonItem key="rightBarButtonItem" title="Photos" id="udC-iz-Yik"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Dme-xA-yJr"/>
                     <connections>
                         <outlet property="bodyLabel" destination="UMD-lC-0pb" id="pjO-LV-Qgr"/>
                         <outlet property="titleLabel" destination="5mI-Ge-7f0" id="xSw-vV-YEF"/>
@@ -295,6 +300,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrJ-zV-wjo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1362.3188405797102" y="-157.36607142857142"/>
+        </scene>
+        <!--Photos Collection View Controller-->
+        <scene sceneID="cZQ-6w-6Ai">
+            <objects>
+                <collectionViewController id="fhM-rN-naf" customClass="PhotosCollectionViewController" customModule="LoremIpsum_SocialApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="me9-PM-2aB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HIU-F5-gBK">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCollectionViewCell" id="jdZ-qr-WMb" customClass="PhotosCollectionViewCell" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="g1O-Wc-rTG">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qXb-JH-cXm">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qXb-JH-cXm" firstAttribute="leading" secondItem="g1O-Wc-rTG" secondAttribute="leading" id="DNh-Xp-yak"/>
+                                        <constraint firstAttribute="bottom" secondItem="qXb-JH-cXm" secondAttribute="bottom" id="YeY-Zs-OQr"/>
+                                        <constraint firstItem="qXb-JH-cXm" firstAttribute="top" secondItem="g1O-Wc-rTG" secondAttribute="top" id="hTv-mB-73H"/>
+                                        <constraint firstAttribute="trailing" secondItem="qXb-JH-cXm" secondAttribute="trailing" id="xzy-KO-Qw4"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="cellImageView" destination="qXb-JH-cXm" id="ByL-MK-lzu"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="fhM-rN-naf" id="Goc-6H-ZTO"/>
+                            <outlet property="delegate" destination="fhM-rN-naf" id="O1c-jQ-NTy"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WwA-Nf-dlR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2206" y="-640"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XaS-Jv-D0M">
