@@ -12,7 +12,9 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
     
     
     //MARK: Properties
-    var commentsPostPath : IndexPath!
+    
+    // This variable is used when picking user on comments on cell
+    var postPath : IndexPath!
     
     var posts : [Post] = []
     {
@@ -94,7 +96,17 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
                 CommentsTableViewController else {
                     fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
-            commentsVC.comments = findCommensByPostId(PostId: posts[commentsPostPath.row].id)
+            commentsVC.comments = findCommensByPostId(PostId: posts[postPath.row].id)
+        case "PostDetailsSegue":
+            guard let postVC = segue.destination as?
+                PostViewController else {
+                     fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+        case "fromPostUserDetailsSegue":
+            guard let userVC = segue.destination as?
+                UserDetailsViewController else {
+                     fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
         default:
             fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
         
@@ -136,7 +148,7 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
     func btnCommentsTapped(cell: PostsTableViewCell){
         let indexPath = self.tableView.indexPath(for: cell)
         print(indexPath!.row)
-        self.commentsPostPath = indexPath
+        self.postPath = indexPath
     }
     
     
