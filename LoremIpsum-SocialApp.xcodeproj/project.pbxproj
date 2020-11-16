@@ -12,6 +12,8 @@
 		E007353C255ACCE40075F9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E007353B255ACCE40075F9D2 /* Assets.xcassets */; };
 		E007353F255ACCE40075F9D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E007353D255ACCE40075F9D2 /* LaunchScreen.storyboard */; };
 		E007354A255ACCE40075F9D2 /* LoremIpsum_SocialAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0073549255ACCE40075F9D2 /* LoremIpsum_SocialAppTests.swift */; };
+		E056087125626CC200ED0EB9 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */; };
+		E056087325626CD800ED0EB9 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */; };
 		E0772283255D207A0004C572 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0772282255D207A0004C572 /* Api.swift */; };
 		E0A58377255AD3D500A81ECC /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A5836E255AD3D500A81ECC /* Geo.swift */; };
 		E0A58378255AD3D500A81ECC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A5836F255AD3D500A81ECC /* Post.swift */; };
@@ -49,6 +51,8 @@
 		E0073545255ACCE40075F9D2 /* LoremIpsum-SocialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LoremIpsum-SocialAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0073549255ACCE40075F9D2 /* LoremIpsum_SocialAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremIpsum_SocialAppTests.swift; sourceTree = "<group>"; };
 		E007354B255ACCE40075F9D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		E0772282255D207A0004C572 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		E0A5836E255AD3D500A81ECC /* Geo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geo.swift; path = Models/Geo.swift; sourceTree = "<group>"; };
 		E0A5836F255AD3D500A81ECC /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				E0073540255ACCE40075F9D2 /* Info.plist */,
 				E0A79B9A255EDAC300766891 /* PostsTableViewController.swift */,
 				E0A79B9C255EDAEA00766891 /* PostsTableViewCell.swift */,
+				E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */,
+				E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */,
 			);
 			path = "LoremIpsum-SocialApp";
 			sourceTree = "<group>";
@@ -272,9 +278,11 @@
 				E0A5837E255AD3D500A81ECC /* Address.swift in Sources */,
 				E0A79B9D255EDAEA00766891 /* PostsTableViewCell.swift in Sources */,
 				E0A58379255AD3D500A81ECC /* User.swift in Sources */,
+				E056087125626CC200ED0EB9 /* CommentsTableViewCell.swift in Sources */,
 				E0073533255ACCE20075F9D2 /* AppDelegate.swift in Sources */,
 				E0A5837F255AD3D500A81ECC /* Photo.swift in Sources */,
 				E0A5837C255AD3D500A81ECC /* Comment.swift in Sources */,
+				E056087325626CD800ED0EB9 /* CommentsTableViewController.swift in Sources */,
 				E0A5837B255AD3D500A81ECC /* Company.swift in Sources */,
 				E0073535255ACCE20075F9D2 /* SceneDelegate.swift in Sources */,
 				E0A58377255AD3D500A81ECC /* Geo.swift in Sources */,

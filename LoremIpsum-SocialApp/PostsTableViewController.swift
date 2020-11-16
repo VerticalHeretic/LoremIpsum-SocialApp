@@ -8,9 +8,12 @@
 
 import UIKit
 
-class PostsTableViewController: UITableViewController {
-
+class PostsTableViewController: UITableViewController,PostsCellDelegate {
+    
+    
     //MARK: Properties
+    var commentsPostPath : IndexPath!
+    
     var posts : [Post] = []
     {
         didSet
@@ -75,7 +78,7 @@ class PostsTableViewController: UITableViewController {
         cell.bodyLabel.text = post.body
         cell.userLabel.text = findUserByUserId(UserId: post.userId).username
         cell.commentsCount.text = String(commentsCount(PostId: post.id))
-        
+        cell.delegate = self
         
         return cell
         }
@@ -85,15 +88,24 @@ class PostsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch(segue.identifier ?? "") {
+        case "fromPostCommentsSegue":
+            guard let commentsVC = segue.destination as?
+                CommentsTableViewController else {
+                    fatalError("Unexpected sender: \(String(describing: sender)) ")
+            }
+            commentsVC.comments = findCommensByPostId(PostId: posts[commentsPostPath.row].id)
+        default:
+            fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
+        
+        }
     }
     
     //MARK: Supporting Methods
     
     //TODO: Look on this function deeper while it sometimes do not hit the time and indexes out of range
     func findUserByUserId(UserId:Int) -> User{
-        for user in users {
+        for user in self.users {
             if(user.id == UserId){
                 return user
             }
@@ -111,5 +123,22 @@ class PostsTableViewController: UITableViewController {
         return counter
     }
     
-
+    func findCommensByPostId(PostId:Int) -> [Comment]{
+        var postComments : [Comment] = []
+        for comment in self.comments {
+            if(comment.postId == PostId){
+                postComments.append(comment)
+            }
+        }
+        return postComments
+    }
+    
+    func btnCommentsTapped(cell: PostsTableViewCell){
+        let indexPath = self.tableView.indexPath(for: cell)
+        print(indexPath!.row)
+        self.commentsPostPath = indexPath
+    }
+    
+    
+    
 }
