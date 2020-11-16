@@ -2,20 +2,18 @@
 //  PostsTableViewCell.swift
 //  LoremIpsum-SocialApp
 //
-//  Created by Lukasz Stachnik on 12/11/2020.
+//  Created by Lukasz Stachnik on 13/11/2020.
 //  Copyright © 2020 Warss. All rights reserved.
 //
 
 import UIKit
 
 class PostsTableViewCell: UITableViewCell {
-    
-    //MARK: Properties
-    @IBOutlet weak var titleLabel : UILabel!
-    @IBOutlet weak var bodyLabel : UILabel!
-    @IBOutlet weak var userLabel : UILabel!
-    @IBOutlet weak var commentsCountLabel : UILabel!
-    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var commentsCount: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +25,7 @@ class PostsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
     
-   
     
 }
