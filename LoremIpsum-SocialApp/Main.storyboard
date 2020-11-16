@@ -187,17 +187,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cGp-d3-cEn">
-                                <rect key="frame" x="20" y="489" width="374" height="343"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current user location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNA-HE-mqE">
-                                <rect key="frame" x="86" y="460" width="241" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current user location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNA-HE-mqE">
+                                <rect key="frame" x="126.5" y="460" width="161" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-83-Jl7">
+                                <rect key="frame" x="20" y="489" width="374" height="373"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="373" id="2mc-dv-qci"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -205,12 +206,15 @@
                             <constraint firstItem="1DT-IH-mLc" firstAttribute="leading" secondItem="Ayc-Ib-yf3" secondAttribute="trailing" constant="8" id="2oU-lb-ivh"/>
                             <constraint firstItem="6CJ-07-Aeu" firstAttribute="baseline" secondItem="fCB-ut-n1d" secondAttribute="baseline" id="3cI-T2-CKD"/>
                             <constraint firstItem="fCB-ut-n1d" firstAttribute="leading" secondItem="6CJ-07-Aeu" secondAttribute="trailing" constant="8" id="4tT-3s-Z3h"/>
+                            <constraint firstItem="Ryq-83-Jl7" firstAttribute="centerX" secondItem="8wQ-Jj-Hgv" secondAttribute="centerX" id="A0L-pA-KrH"/>
                             <constraint firstItem="ESu-dC-ri1" firstAttribute="trailing" secondItem="WMi-OG-vhh" secondAttribute="trailing" constant="16" id="Bar-tK-cgz"/>
                             <constraint firstItem="8wQ-Jj-Hgv" firstAttribute="leading" secondItem="ESu-dC-ri1" secondAttribute="leading" constant="87" id="CfP-Bw-3t6"/>
                             <constraint firstItem="8wQ-Jj-Hgv" firstAttribute="top" secondItem="ESu-dC-ri1" secondAttribute="top" constant="8" id="Dsn-LR-vHy"/>
                             <constraint firstItem="ESu-dC-ri1" firstAttribute="trailing" secondItem="8wQ-Jj-Hgv" secondAttribute="trailing" constant="87" id="IPh-Yj-vS7"/>
                             <constraint firstItem="vVU-CW-B7n" firstAttribute="trailing" secondItem="fCB-ut-n1d" secondAttribute="trailing" id="MTY-Gu-osm"/>
+                            <constraint firstItem="Ryq-83-Jl7" firstAttribute="bottom" secondItem="ESu-dC-ri1" secondAttribute="bottom" id="OeI-Pn-hDw"/>
                             <constraint firstItem="4pp-3x-uuB" firstAttribute="top" secondItem="v9a-Is-cak" secondAttribute="bottom" constant="8" id="Raj-12-Ze9"/>
+                            <constraint firstItem="Ryq-83-Jl7" firstAttribute="centerX" secondItem="HNA-HE-mqE" secondAttribute="centerX" id="TFu-Dw-YlI"/>
                             <constraint firstItem="fCB-ut-n1d" firstAttribute="trailing" secondItem="1DT-IH-mLc" secondAttribute="trailing" id="TTb-1y-qhf"/>
                             <constraint firstItem="6CJ-07-Aeu" firstAttribute="leading" secondItem="Ayc-Ib-yf3" secondAttribute="leading" id="Yay-X9-BdA"/>
                             <constraint firstItem="v9a-Is-cak" firstAttribute="leading" secondItem="ESu-dC-ri1" secondAttribute="leading" constant="16" id="aM0-R5-PTZ"/>
@@ -218,11 +222,13 @@
                             <constraint firstItem="v9a-Is-cak" firstAttribute="top" secondItem="8wQ-Jj-Hgv" secondAttribute="bottom" constant="8" id="f8x-bq-Gzz"/>
                             <constraint firstItem="Ayc-Ib-yf3" firstAttribute="baseline" secondItem="1DT-IH-mLc" secondAttribute="baseline" id="fom-6J-4xR"/>
                             <constraint firstItem="6CJ-07-Aeu" firstAttribute="top" secondItem="4pp-3x-uuB" secondAttribute="bottom" constant="8" id="fz3-6g-NA6"/>
+                            <constraint firstItem="Ryq-83-Jl7" firstAttribute="top" secondItem="HNA-HE-mqE" secondAttribute="bottom" constant="8" id="hYy-Dh-AD7"/>
                             <constraint firstItem="v9a-Is-cak" firstAttribute="leading" secondItem="4pp-3x-uuB" secondAttribute="leading" id="hoh-pO-B13"/>
                             <constraint firstItem="WMi-OG-vhh" firstAttribute="trailing" secondItem="vVU-CW-B7n" secondAttribute="trailing" id="jM2-8E-lhQ"/>
                             <constraint firstItem="vVU-CW-B7n" firstAttribute="leading" secondItem="4pp-3x-uuB" secondAttribute="trailing" constant="8" id="oUs-ot-JLe"/>
                             <constraint firstItem="WMi-OG-vhh" firstAttribute="leading" secondItem="v9a-Is-cak" secondAttribute="trailing" constant="8" id="r5A-73-WJL"/>
                             <constraint firstItem="4pp-3x-uuB" firstAttribute="leading" secondItem="6CJ-07-Aeu" secondAttribute="leading" id="r82-M5-Sj2"/>
+                            <constraint firstItem="Ryq-83-Jl7" firstAttribute="leading" secondItem="fzc-XR-uU3" secondAttribute="leadingMargin" id="sdq-ge-ayP"/>
                             <constraint firstItem="4pp-3x-uuB" firstAttribute="baseline" secondItem="vVU-CW-B7n" secondAttribute="baseline" id="vcM-Fe-cFn"/>
                             <constraint firstItem="Ayc-Ib-yf3" firstAttribute="top" secondItem="6CJ-07-Aeu" secondAttribute="bottom" constant="8" id="yLb-5x-Hrj"/>
                         </constraints>
@@ -231,6 +237,7 @@
                     <navigationItem key="navigationItem" id="LGr-0p-xAw"/>
                     <connections>
                         <outlet property="emailLabel" destination="vVU-CW-B7n" id="Khs-xL-ogH"/>
+                        <outlet property="map" destination="Ryq-83-Jl7" id="wWF-VS-uLx"/>
                         <outlet property="nameLabel" destination="WMi-OG-vhh" id="Jvd-tU-tTY"/>
                         <outlet property="phoneLabel" destination="fCB-ut-n1d" id="I0w-oR-sQg"/>
                         <outlet property="userImageView" destination="8wQ-Jj-Hgv" id="dr8-Ye-tm0"/>
