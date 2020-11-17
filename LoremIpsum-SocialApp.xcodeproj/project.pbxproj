@@ -19,6 +19,8 @@
 		E056087125626CC200ED0EB9 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */; };
 		E056087325626CD800ED0EB9 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */; };
 		E0772283255D207A0004C572 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0772282255D207A0004C572 /* Api.swift */; };
+		E0A1EF472563B3B4007FD71B /* crayon-1030.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A1EF462563B3B4007FD71B /* crayon-1030.png */; };
+		E0A1EF492563B4DD007FD71B /* ThreePointGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A1EF482563B4DD007FD71B /* ThreePointGradientView.swift */; };
 		E0A58377255AD3D500A81ECC /* Geo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A5836E255AD3D500A81ECC /* Geo.swift */; };
 		E0A58378255AD3D500A81ECC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A5836F255AD3D500A81ECC /* Post.swift */; };
 		E0A58379255AD3D500A81ECC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A58370255AD3D500A81ECC /* User.swift */; };
@@ -62,6 +64,8 @@
 		E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		E0772282255D207A0004C572 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		E0A1EF462563B3B4007FD71B /* crayon-1030.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crayon-1030.png"; path = "../../../../Downloads/crayon-1030.png"; sourceTree = "<group>"; };
+		E0A1EF482563B4DD007FD71B /* ThreePointGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreePointGradientView.swift; sourceTree = "<group>"; };
 		E0A5836E255AD3D500A81ECC /* Geo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geo.swift; path = Models/Geo.swift; sourceTree = "<group>"; };
 		E0A5836F255AD3D500A81ECC /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
 		E0A58370255AD3D500A81ECC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
@@ -117,23 +121,15 @@
 		E0073531255ACCE20075F9D2 /* LoremIpsum-SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				E0A1EF4C2563B5F9007FD71B /* Storyboards */,
+				E0A1EF4B2563B5E6007FD71B /* Views */,
 				E0DB2CEF255D2DCD00BF374C /* Images  */,
 				E0772281255D20430004C572 /* Networking */,
 				E0A58380255AD3E100A81ECC /* Models */,
 				E0073532255ACCE20075F9D2 /* AppDelegate.swift */,
 				E0073534255ACCE20075F9D2 /* SceneDelegate.swift */,
-				E0A79B98255ED8B700766891 /* Main.storyboard */,
 				E007353B255ACCE40075F9D2 /* Assets.xcassets */,
-				E007353D255ACCE40075F9D2 /* LaunchScreen.storyboard */,
 				E0073540255ACCE40075F9D2 /* Info.plist */,
-				E0A79B9A255EDAC300766891 /* PostsTableViewController.swift */,
-				E0A79B9C255EDAEA00766891 /* PostsTableViewCell.swift */,
-				E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */,
-				E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */,
-				E0094892256286FD00FB4D9B /* PostViewController.swift */,
-				E0094894256287EB00FB4D9B /* UserDetailsViewController.swift */,
-				E009489C2562C41700FB4D9B /* PhotosCollectionViewController.swift */,
-				E009489E2562C43400FB4D9B /* PhotosCollectionViewCell.swift */,
 			);
 			path = "LoremIpsum-SocialApp";
 			sourceTree = "<group>";
@@ -155,6 +151,31 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
+		E0A1EF4B2563B5E6007FD71B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0A79B9A255EDAC300766891 /* PostsTableViewController.swift */,
+				E0A79B9C255EDAEA00766891 /* PostsTableViewCell.swift */,
+				E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */,
+				E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */,
+				E0094892256286FD00FB4D9B /* PostViewController.swift */,
+				E0094894256287EB00FB4D9B /* UserDetailsViewController.swift */,
+				E009489C2562C41700FB4D9B /* PhotosCollectionViewController.swift */,
+				E009489E2562C43400FB4D9B /* PhotosCollectionViewCell.swift */,
+				E0A1EF482563B4DD007FD71B /* ThreePointGradientView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E0A1EF4C2563B5F9007FD71B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E007353D255ACCE40075F9D2 /* LaunchScreen.storyboard */,
+				E0A79B98255ED8B700766891 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		E0A58380255AD3E100A81ECC /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +195,7 @@
 		E0DB2CEF255D2DCD00BF374C /* Images  */ = {
 			isa = PBXGroup;
 			children = (
+				E0A1EF462563B3B4007FD71B /* crayon-1030.png */,
 				E0DB2CF2255D2DDF00BF374C /* icons8-no-camera-100.png */,
 				E0DB2CF0255D2DDA00BF374C /* icons8-comments-100.png */,
 			);
@@ -266,6 +288,7 @@
 				E007353C255ACCE40075F9D2 /* Assets.xcassets in Resources */,
 				E0DB2CF3255D2DDF00BF374C /* icons8-no-camera-100.png in Resources */,
 				E0DB2CF1255D2DDA00BF374C /* icons8-comments-100.png in Resources */,
+				E0A1EF472563B3B4007FD71B /* crayon-1030.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +315,7 @@
 				E0A5837E255AD3D500A81ECC /* Address.swift in Sources */,
 				E0A79B9D255EDAEA00766891 /* PostsTableViewCell.swift in Sources */,
 				E0A58379255AD3D500A81ECC /* User.swift in Sources */,
+				E0A1EF492563B4DD007FD71B /* ThreePointGradientView.swift in Sources */,
 				E0094895256287EB00FB4D9B /* UserDetailsViewController.swift in Sources */,
 				E056087125626CC200ED0EB9 /* CommentsTableViewCell.swift in Sources */,
 				E0073533255ACCE20075F9D2 /* AppDelegate.swift in Sources */,
