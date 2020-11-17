@@ -60,7 +60,7 @@ class UserDetailsViewController: UIViewController {
        switch(segue.identifier ?? "") {
         case "fromUserToPhotos":
             guard let photosVC = segue.destination as?
-                PhotosCollectionViewController else {
+                PhotosViewController else {
                     fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
             photosVC.user = self.user

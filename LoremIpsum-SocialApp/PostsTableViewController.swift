@@ -68,16 +68,6 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
         tableView.delegate = self
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.setNavigationBarHidden(true, animated: false)
-//    }
-//
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: false)
-//    }
-    
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -178,6 +168,7 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
         print(indexPath!.row)
         self.postPath = indexPath
     }
+    
     
     func showLoadingScreen() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)

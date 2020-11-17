@@ -105,7 +105,7 @@ class Api {
     }
     func fetchPhotosWithId(AlbumId: Int, completionHandler : @escaping([Photo]) -> Void){
         
-        if let urlToServer = URL.init(string: "https://jsonplaceholder.typicode.com/photos/albumId=\(AlbumId)") {
+        if let urlToServer = URL.init(string: "https://jsonplaceholder.typicode.com/photos/?albumId=\(AlbumId)") {
             
             let tasks = URLSession.shared.dataTask(with: urlToServer) { (data, response, error) in
                 
@@ -127,7 +127,7 @@ class Api {
     }
     func fetchAlbumsWithUserId(UserId: Int, completionHandler : @escaping([Album]) -> Void){
            
-           if let urlToServer = URL.init(string: "https://jsonplaceholder.typicode.com/albums/userId=\(UserId)") {
+           if let urlToServer = URL.init(string: "https://jsonplaceholder.typicode.com/albums/?userId=\(UserId)") {
                
                let tasks = URLSession.shared.dataTask(with: urlToServer) { (data, response, error) in
                    
