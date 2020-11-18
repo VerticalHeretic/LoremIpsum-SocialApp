@@ -10,7 +10,7 @@ import UIKit
 import os
 
 struct PhotosCellViewModel {
-    let image: UIImage
+    let image: UIImage?
 }
 
 class PhotosViewModel {
@@ -61,6 +61,7 @@ class PhotosViewModel {
         self.photos.forEach { (photo) in
             DispatchQueue.global(qos: .background).async(group: group) {
                 group.enter()
+                
                 guard let imageData = try? Data(contentsOf: photo.thumbnailUrl) else {
                     self.showError?(APIError.imageDownload)
                     return
@@ -71,6 +72,7 @@ class PhotosViewModel {
                     self.showError?(APIError.imageConvert)
                     return
                 }
+                
                 self.photosCellViewModels.append(PhotosCellViewModel(image: image))
                 group.leave()
             }
