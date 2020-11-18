@@ -11,7 +11,7 @@ import UIKit
 class PostViewController: UIViewController {
 
     //MARK: Properties
-    var post : Post!
+    var post : PostsCellViewModel!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!

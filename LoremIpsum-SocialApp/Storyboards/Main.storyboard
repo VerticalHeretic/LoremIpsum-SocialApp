@@ -544,6 +544,20 @@
             </objects>
             <point key="canvasLocation" x="1162" y="511"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Mic-GD-IXx">
+            <objects>
+                <viewController id="Jhk-Vh-wss" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="06F-zf-j4n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3c-25-77c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-384" y="-21"/>
+        </scene>
     </scenes>
     <resources>
         <image name="crayon-1030.png" width="912" height="912"/>
