@@ -1,5 +1,5 @@
 //
-//  Todo.swift
+//  Comment.swift
 //  LoremIpsum-SocialApp
 //
 //  Created by Lukasz Stachnik on 10/11/2020.
@@ -8,9 +8,12 @@
 
 import Foundation
 
-struct Todo : Codable{
-    var userId: Int
+typealias Comments = [Comment]
+
+struct Comment : Codable{
+    var postId: Int
     var id: Int
-    var title: String
-    var completed: Bool
+    var name: String
+    var email: String
+    var body: String
 }
