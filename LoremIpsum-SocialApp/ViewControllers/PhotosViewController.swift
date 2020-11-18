@@ -59,7 +59,8 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath as IndexPath) as! PhotosCollectionViewCell
         
         let image = viewModel.photosCellViewModels[indexPath.item].image
-//        cell.photoImageView.image = image
+        
+        cell.photoImageView.image = image
        
         return cell
     }
