@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+typealias Posts = [Post]
+
 struct Post : Codable{
     var id : Int
     var userId : Int

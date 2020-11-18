@@ -7,7 +7,6 @@
 //
 import Foundation
 
-
 struct Geo : Codable{
     var lat: String
     var lng: String

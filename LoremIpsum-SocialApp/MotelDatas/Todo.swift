@@ -1,5 +1,5 @@
 //
-//  Photo.swift
+//  Todo.swift
 //  LoremIpsum-SocialApp
 //
 //  Created by Lukasz Stachnik on 10/11/2020.
@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct Photo : Codable{
-    var albumId: Int
+typealias Todos = [Todo]
+
+struct Todo : Codable{
+    var userId: Int
     var id: Int
     var title: String
-    var url: String
-    var thumbnailUrl: String
+    var completed: Bool
 }

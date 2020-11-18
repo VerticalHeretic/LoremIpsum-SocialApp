@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias Users = [User]
+
 struct User : Codable{
     var id: Int
     var name: String
