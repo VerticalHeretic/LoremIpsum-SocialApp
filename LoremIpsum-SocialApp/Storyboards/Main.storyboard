@@ -361,23 +361,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="H8f-Ej-R2l">
-                                <rect key="frame" x="81" y="210" width="246.5" height="96"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="H8f-Ej-R2l">
+                                <rect key="frame" x="81" y="210" width="252" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDR-hy-lMc">
-                                        <rect key="frame" x="67.5" y="0.0" width="112" height="27.5"/>
+                                        <rect key="frame" x="70" y="0.0" width="112" height="27.5"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hope you are having a nice day!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K36-VC-Flk">
-                                        <rect key="frame" x="0.0" y="31.5" width="246.5" height="23.5"/>
+                                        <rect key="frame" x="3" y="31.5" width="246.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rKC-Z3-lU1">
-                                        <rect key="frame" x="105" y="59" width="37" height="37"/>
+                                        <rect key="frame" x="107.5" y="59" width="37" height="37"/>
                                         <color key="color" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -437,8 +437,12 @@
                             <constraint firstItem="Y1I-qn-fHZ" firstAttribute="top" secondItem="HsB-Pg-bPE" secondAttribute="top" id="6tp-X4-Sxl"/>
                             <constraint firstItem="Y1I-qn-fHZ" firstAttribute="bottom" secondItem="HsB-Pg-bPE" secondAttribute="bottom" id="GFf-YT-uoz"/>
                             <constraint firstItem="Y1I-qn-fHZ" firstAttribute="leading" secondItem="HsB-Pg-bPE" secondAttribute="leading" id="Jmy-0Y-dI9"/>
+                            <constraint firstItem="H8f-Ej-R2l" firstAttribute="top" secondItem="HsB-Pg-bPE" secondAttribute="top" constant="210" id="Kdf-PB-uFG"/>
+                            <constraint firstItem="H8f-Ej-R2l" firstAttribute="leading" secondItem="HsB-Pg-bPE" secondAttribute="leading" constant="81" id="LmC-EG-fqY"/>
                             <constraint firstItem="Y1I-qn-fHZ" firstAttribute="trailing" secondItem="HsB-Pg-bPE" secondAttribute="trailing" id="Mri-Uc-OVt"/>
+                            <constraint firstItem="HsB-Pg-bPE" firstAttribute="bottom" secondItem="H8f-Ej-R2l" secondAttribute="bottom" constant="468" id="QTS-k8-bhF"/>
                             <constraint firstItem="Y1I-qn-fHZ" firstAttribute="leading" secondItem="HsB-Pg-bPE" secondAttribute="leading" id="TqX-sM-LG1"/>
+                            <constraint firstItem="HsB-Pg-bPE" firstAttribute="trailing" secondItem="H8f-Ej-R2l" secondAttribute="trailing" constant="81" id="VPj-Ck-yhA"/>
                             <constraint firstItem="Y1I-qn-fHZ" firstAttribute="trailing" secondItem="HsB-Pg-bPE" secondAttribute="trailing" id="xfc-lq-IS4"/>
                             <constraint firstItem="Y1I-qn-fHZ" firstAttribute="top" secondItem="HsB-Pg-bPE" secondAttribute="top" id="ycM-CP-8do"/>
                         </constraints>

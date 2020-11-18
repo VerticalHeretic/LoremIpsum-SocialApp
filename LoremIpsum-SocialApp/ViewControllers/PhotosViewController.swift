@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import os
 
 class PhotosViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate  {
-
     
     //MARK: Outlets
     @IBOutlet weak var photosCollectionView: UICollectionView!
@@ -19,28 +19,48 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
     
     
     var user : User!
-    var collectionData = ["1 😀", "2 😃", "3 🤣", "4 😉","5 🥲","6 😌","7 👍🏻","8 🥰"]
+    let viewModel = PhotosViewModel(client: JSONPlaceholderClient())
    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View did load")
         
+        
+        viewModel.showLoading = {
+            if self.viewModel.isLoading {
+                self.activityIndicator.startAnimating()
+                self.photosCollectionView.alpha = 0.0
+            } else {
+                self.activityIndicator.stopAnimating()
+                self.photosCollectionView.alpha = 1.0
+            }
+        }
+        
+        viewModel.showError = { error in
+            print(error)
+        }
+        
+        viewModel.reloadData = {
+            self.photosCollectionView.reloadData()
+        }
+        
+        viewModel.fetchPhotos()
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionData.count
-        
+        return viewModel.photosCellViewModels.count
     }
        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath as IndexPath) as! PhotosCollectionViewCell
         
+        let image = viewModel.photosCellViewModels[indexPath.item].image
+//        cell.photoImageView.image = image
+       
         return cell
     }
     

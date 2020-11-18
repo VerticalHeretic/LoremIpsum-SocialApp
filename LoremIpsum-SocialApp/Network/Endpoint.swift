@@ -24,6 +24,7 @@ extension Endpoint {
     }
     
     var request: URLRequest {
+        print(urlComponent.url!)
         return URLRequest(url: urlComponent.url!)
     }
     
@@ -81,7 +82,7 @@ enum JsonPlaceHolderEndpoint : Endpoint {
             ]
         case .albums(let userId):
             return [
-                URLQueryItem(name: "userId", value: userId)
+                URLQueryItem(name: "userId", value: userId )
             ]
         case .photos(let albumId):
             return [
