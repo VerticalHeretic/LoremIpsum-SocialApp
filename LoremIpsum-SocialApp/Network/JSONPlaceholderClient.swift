@@ -17,9 +17,20 @@ class JSONPlaceholderClient : APIClient {
         get(with: request, completion: completion)
     }
     
+    func fetchUsers(with endpoint: JsonPlaceHolderEndpoint, completion: @escaping (Either<Users>) -> Void){
+        let request = endpoint.request
+        get(with: request, completion: completion)
+    }
+    
+     func fetchComments(with endpoint: JsonPlaceHolderEndpoint, completion: @escaping (Either<Comments>) -> Void){
+           let request = endpoint.request
+           get(with: request, completion: completion)
+    }
+    
     func fetchPhotos(with endpoint: JsonPlaceHolderEndpoint, completion: @escaping (Either<Photos>) -> Void){
         let request = endpoint.request
         get(with: request, completion: completion)
     }
+    
     
 }

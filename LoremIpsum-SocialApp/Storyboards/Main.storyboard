@@ -423,6 +423,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="Jdl-Il-kpO" id="OM1-j4-qVF"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
