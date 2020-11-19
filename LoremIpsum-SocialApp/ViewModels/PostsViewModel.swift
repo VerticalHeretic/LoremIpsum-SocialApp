@@ -10,11 +10,9 @@ import UIKit
 import os
 
 struct PostsCellViewModel {
-    let id : Int
-    let title : String
-    let body : String
-    let commentsCount : String
-    let username : String
+    let post : Post
+    let user : User
+    let comments : [Comment]
 }
 
 class PostsViewModel {
@@ -23,19 +21,19 @@ class PostsViewModel {
     private let client: APIClient
     private var posts: Posts = [] {
         didSet {
-            self.fetchPosts()
+            self.fetchPost()
         }
     }
     
     private var users: Users = [] {
         didSet {
-            self.fetchUsers()
+            self.fetchPost()
         }
     }
     
     private var comments: Comments = [] {
         didSet {
-            self.fetchComments()
+            self.fetchPost()
         }
     }
     
@@ -90,7 +88,7 @@ class PostsViewModel {
     func fetchUsers(){
         if let client = client as? JSONPlaceholderClient {
             self.isLoading = true
-            let endpoint = JsonPlaceHolderEndpoint.comments
+            let endpoint = JsonPlaceHolderEndpoint.users
             client.fetchUsers(with: endpoint) { (either) in
                 switch either {
                     case .success(let users):
@@ -101,24 +99,20 @@ class PostsViewModel {
             }
         }
     }
+
     
     
     private func fetchPost() {
-        let group = DispatchGroup() // <- this can be explained as a counter of dispatchers
-        
+        let group = DispatchGroup()
         self.posts.forEach { (post) in
             DispatchQueue.global(qos: .background).async(group: group) {
                 group.enter()
-                
-                
-                os_log("Loading post", log: .default, type: .debug)
-                
-                self.postsCellViewModels.append(PostsCellViewModel(id: post.id, title: post.title, body: post.body, commentsCount: self.commentsCount(PostId: post.id), username: self.findUserByUserId(UserId: post.userId)!.username))
+                self.postsCellViewModels.append(PostsCellViewModel(post: post, user: self.findUserByUserId(UserId: post.userId), comments: self.findCommensByPostId(PostId: post.id)))
                 group.leave()
             }
         }
-        
         group.notify(queue: .main) {
+            print("Finished fetching posts")
             self.isLoading = false
             self.reloadData?()
         }
@@ -126,19 +120,19 @@ class PostsViewModel {
     
     //MARK: Supporting Methods
       
-      
-        func findUserByUserId(UserId:Int) -> User?{
+    func findUserByUserId(UserId:Int) -> User{
+        var userPlaceholder : User!
           for user in self.users {
               if(user.id == UserId){
-                  return user
+                  userPlaceholder = user
               }
           }
-          return nil
+          return userPlaceholder
       }
       
-      private func commentsCount(PostId:Int) -> String{
+    func commentsCount(PostId:Int) -> String{
           var counter = 0
-          for comment in comments {
+        for comment in self.comments {
               if(comment.postId == PostId){
                   counter += 1
               }

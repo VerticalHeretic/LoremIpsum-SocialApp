@@ -36,14 +36,19 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
         
         viewModel.showError = { error in
             print(error)
+            
         }
         
         viewModel.reloadData = {
             self.tableView.reloadData()
         }
+        
         viewModel.fetchUsers()
+        print("Users fetched! )")
         viewModel.fetchComments()
+        print("Comments fetched!)")
         viewModel.fetchPosts()
+        print("Posts fetched!)")
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -69,10 +74,10 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
         }
         let post = viewModel.postsCellViewModels[indexPath.row]
         
-        cell.titleLabel.text = post.title
-        cell.bodyLabel.text = post.body
-        cell.userLabel.text = post.username
-        cell.commentsCount.text = post.commentsCount
+        cell.titleLabel.text = post.post.title
+        cell.bodyLabel.text = post.post.body
+        cell.userLabel.text = post.user.username
+        cell.commentsCount.text = viewModel.commentsCount(PostId: post.post.id)
         cell.delegate = self
         
         return cell
@@ -89,7 +94,7 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
                 CommentsTableViewController else {
                     fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
-            commentsVC.comments = viewModel.findCommensByPostId(PostId: viewModel.postsCellViewModels[postPath.row].id)
+            commentsVC.comments = viewModel.findCommensByPostId(PostId: viewModel.postsCellViewModels[postPath.row].post.id)
         case "PostDetailsSegue":
             guard let postVC = segue.destination as?
                 PostViewController else {
@@ -107,7 +112,7 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
                 UserDetailsViewController else {
                      fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
-            userVC.user = viewModel.findUserByUserId(UserId: viewModel.postsCellViewModels[postPath.row].id)
+            userVC.user = viewModel.findUserByUserId(UserId: viewModel.postsCellViewModels[postPath.row].post.userId)
             
         default:
             fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")

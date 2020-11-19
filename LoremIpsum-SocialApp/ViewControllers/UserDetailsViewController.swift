@@ -32,8 +32,6 @@ class UserDetailsViewController: UIViewController {
         
         self.navigationItem.title = "User: \(self.user.username)"
         
-        print("Lat: \(Double(user.address.geo.lat))!")
-        print("Long: \(Double(user.address.geo.lng))!")
         let centerLocation = CLLocationCoordinate2DMake(Double(user.address.geo.lat)!, Double(user.address.geo.lng)!)
        
         let mapSpan = MKCoordinateSpan.init(latitudeDelta:  0.01,longitudeDelta: 0.01)
