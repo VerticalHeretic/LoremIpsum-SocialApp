@@ -18,61 +18,50 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
     
     // This variable is used when picking user on comments on cell
     var postPath : IndexPath!
+    let viewModel = PostsViewModel(client: JSONPlaceholderClient())
     
-    var posts : [Post] = []
-    {
-        didSet
-        {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    var users : [User] = []
-       {
-          didSet
-           {
-               DispatchQueue.main.async {
-                   self.tableView.reloadData()
-               }
-           }
-       }
-    
-    var comments : [Comment] = []
-       {
-           didSet
-           {
-               DispatchQueue.main.async {
-                   self.tableView.reloadData()
-               }
-           }
-       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         showLoadingScreen()
         
-        Api().fetchUsers{ users in
-            self.users = users
+        viewModel.showLoading = {
+            if self.viewModel.isLoading{
+                self.tableView.alpha = 0.0
+            } else {
+                self.tableView.alpha = 1.0
+            }
         }
-        Api().fetchPostsData{ posts in
-            self.posts = posts
+        
+        viewModel.showError = { error in
+            print(error)
+            
         }
-        Api().fetchComments{ comments in
-            self.comments = comments
+        
+        viewModel.reloadData = {
+            self.tableView.reloadData()
         }
+        
+        viewModel.fetchUsers()
+        print("Users fetched! )")
+        viewModel.fetchComments()
+        print("Comments fetched!)")
+        viewModel.fetchPosts()
+        print("Posts fetched!)")
         
         tableView.dataSource = self
         tableView.delegate = self
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return posts.count
+        return viewModel.postsCellViewModels.count
     }
 
 
@@ -83,12 +72,12 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostsTableViewCell else {
             fatalError("The dequeue cell is not an instance of \(cellIdentifier)")
         }
-        let post = posts[indexPath.row]
+        let post = viewModel.postsCellViewModels[indexPath.row]
         
-        cell.titleLabel.text = post.title
-        cell.bodyLabel.text = post.body
-        cell.userLabel.text = findUserByUserId(UserId: post.userId).username
-        cell.commentsCount.text = String(commentsCount(PostId: post.id))
+        cell.titleLabel.text = post.post.title
+        cell.bodyLabel.text = post.post.body
+        cell.userLabel.text = post.user.username
+        cell.commentsCount.text = viewModel.commentsCount(PostId: post.post.id)
         cell.delegate = self
         
         return cell
@@ -105,7 +94,7 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
                 CommentsTableViewController else {
                     fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
-            commentsVC.comments = findCommensByPostId(PostId: posts[postPath.row].id)
+            commentsVC.comments = viewModel.findCommensByPostId(PostId: viewModel.postsCellViewModels[postPath.row].post.id)
         case "PostDetailsSegue":
             guard let postVC = segue.destination as?
                 PostViewController else {
@@ -117,52 +106,20 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
             guard let indexPath = tableView.indexPath(for: selectedPostCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
-            postVC.post = posts[indexPath.row]
+            postVC.post = viewModel.postsCellViewModels[indexPath.row]
         case "fromPostUserDetailsSegue":
             guard let userVC = segue.destination as?
                 UserDetailsViewController else {
                      fatalError("Unexpected sender: \(String(describing: sender)) ")
             }
-            userVC.user = findUserByUserId(UserId: posts[postPath.row].userId)
+            userVC.user = viewModel.findUserByUserId(UserId: viewModel.postsCellViewModels[postPath.row].post.userId)
             
         default:
             fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
         
         }
     }
-    
-    //MARK: Supporting Methods
-    
-    //TODO: Look on this function deeper while it sometimes do not hit the time and indexes out of range
-    func findUserByUserId(UserId:Int) -> User{
-        for user in self.users {
-            if(user.id == UserId){
-                return user
-            }
-        }
-        return users[0]
-    }
-    
-    func commentsCount(PostId:Int) -> Int{
-        var counter = 0
-        for comment in comments {
-            if(comment.postId == PostId){
-                counter += 1
-            }
-        }
-        return counter
-    }
-    
-    func findCommensByPostId(PostId:Int) -> [Comment]{
-        var postComments : [Comment] = []
-        for comment in self.comments {
-            if(comment.postId == PostId){
-                postComments.append(comment)
-            }
-        }
-        return postComments
-    }
-    
+        
     func btnPostTapped(cell: PostsTableViewCell){
         let indexPath = self.tableView.indexPath(for: cell)
         print(indexPath!.row)

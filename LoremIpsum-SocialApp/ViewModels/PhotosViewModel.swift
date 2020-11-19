@@ -10,7 +10,7 @@ import UIKit
 import os
 
 struct PhotosCellViewModel {
-    let image: UIImage?
+    let image: UIImage
 }
 
 class PhotosViewModel {
@@ -36,6 +36,7 @@ class PhotosViewModel {
     var reloadData: (() -> Void)?
     var showError: ((Error) -> Void)?
     
+    //MARK: Initialization
     init(client: APIClient) {
         self.client = client
     }

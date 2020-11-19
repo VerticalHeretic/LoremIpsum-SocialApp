@@ -11,7 +11,7 @@ import UIKit
 class PostViewController: UIViewController {
 
     //MARK: Properties
-    var post : Post!
+    var post : PostsCellViewModel!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
@@ -19,14 +19,14 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Post: \(self.post.id)"
-        self.titleLabel.text = self.post.title
-        self.bodyLabel.text = self.post.body
+        self.navigationItem.title = "Post: \(self.post.post.id)"
+        self.titleLabel.text = self.post.post.title
+        self.bodyLabel.text = self.post.post.body
 
         // Do any additional setup after loading the view.
     }
     
-       //MARK: Orientation
+    //MARK: Orientation
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {

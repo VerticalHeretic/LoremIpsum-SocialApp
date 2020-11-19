@@ -66,11 +66,11 @@ enum JsonPlaceHolderEndpoint : Endpoint {
         switch self {
         case .posts:
             return [
-                URLQueryItem(name: "", value: "")
+                
             ]
         case .users:
             return [
-                URLQueryItem(name: "", value: "")
+                
             ]
         case .user:
             return [
@@ -78,7 +78,7 @@ enum JsonPlaceHolderEndpoint : Endpoint {
             ]
         case .comments:
             return [
-                URLQueryItem(name: "", value: "")
+                
             ]
         case .albums(let userId):
             return [
