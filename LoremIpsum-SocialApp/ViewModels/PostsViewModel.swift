@@ -106,7 +106,13 @@ class PostsViewModel {
         let group = DispatchGroup()
         self.posts.forEach { (post) in
             DispatchQueue.global(qos: .background).async(group: group) {
+                
                 group.enter()
+                if !self.users.isEmpty && !self.comments.isEmpty {
+                    group.leave()
+                }
+                group.enter()
+                
                 self.postsCellViewModels.append(PostsCellViewModel(post: post, user: self.findUserByUserId(UserId: post.userId), comments: self.findCommensByPostId(PostId: post.id)))
                 group.leave()
             }
@@ -127,7 +133,8 @@ class PostsViewModel {
                   userPlaceholder = user
               }
           }
-          return userPlaceholder
+
+        return userPlaceholder
       }
       
     func commentsCount(PostId:Int) -> String{
