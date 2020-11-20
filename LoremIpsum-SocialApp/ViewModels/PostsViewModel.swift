@@ -21,7 +21,7 @@ class PostsViewModel {
     private let client: APIClient
     private var posts: Posts = [] {
         didSet {
-//            self.fetchPost()
+            self.fetchPost()
         }
     }
     
@@ -33,7 +33,7 @@ class PostsViewModel {
     
     private var comments: Comments = [] {
         didSet {
-//            self.fetchPost()
+            self.fetchPost()
         }
     }
     
