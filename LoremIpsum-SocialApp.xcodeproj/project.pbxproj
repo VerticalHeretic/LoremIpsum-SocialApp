@@ -18,6 +18,16 @@
 		E00A00DC25655CF800808600 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A00DB25655CF800808600 /* PostsViewModel.swift */; };
 		E056087125626CC200ED0EB9 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */; };
 		E056087325626CD800ED0EB9 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */; };
+		E09AE28D256BBC6600A8EFD6 /* PostsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE28C256BBC6600A8EFD6 /* PostsTableViewController.xib */; };
+		E09AE28F256BBC9000A8EFD6 /* PostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE28E256BBC9000A8EFD6 /* PostsTableViewCell.xib */; };
+		E09AE291256BBCA400A8EFD6 /* CommentsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE290256BBCA400A8EFD6 /* CommentsTableViewController.xib */; };
+		E09AE293256BBCAF00A8EFD6 /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE292256BBCAF00A8EFD6 /* CommentsTableViewCell.xib */; };
+		E09AE295256BBCBA00A8EFD6 /* UserDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE294256BBCBA00A8EFD6 /* UserDetailsViewController.xib */; };
+		E09AE297256BBCD500A8EFD6 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE296256BBCD500A8EFD6 /* PostViewController.xib */; };
+		E09AE299256BBCE500A8EFD6 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */; };
+		E09AE29B256BBCFF00A8EFD6 /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE29A256BBCFF00A8EFD6 /* PhotosCollectionViewCell.xib */; };
+		E09AE29E256BC23C00A8EFD6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09AE29D256BC23C00A8EFD6 /* LoadingView.swift */; };
+		E09AE2A0256BC24F00A8EFD6 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */; };
 		E09DBFBB256512730019F606 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DBFBA256512730019F606 /* PhotosCollectionViewCell.swift */; };
 		E09DBFBD2565153F0019F606 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E09DBFBC2565153F0019F606 /* placeholder.png */; };
 		E09DBFBF2565216E0019F606 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DBFBE2565216E0019F606 /* Endpoint.swift */; };
@@ -68,6 +78,16 @@
 		E00A00DB25655CF800808600 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
+		E09AE28C256BBC6600A8EFD6 /* PostsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsTableViewController.xib; sourceTree = "<group>"; };
+		E09AE28E256BBC9000A8EFD6 /* PostsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsTableViewCell.xib; sourceTree = "<group>"; };
+		E09AE290256BBCA400A8EFD6 /* CommentsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewController.xib; sourceTree = "<group>"; };
+		E09AE292256BBCAF00A8EFD6 /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
+		E09AE294256BBCBA00A8EFD6 /* UserDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsViewController.xib; sourceTree = "<group>"; };
+		E09AE296256BBCD500A8EFD6 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
+		E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
+		E09AE29A256BBCFF00A8EFD6 /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
+		E09AE29D256BC23C00A8EFD6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		E09DBFBA256512730019F606 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		E09DBFBC2565153F0019F606 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = ../../../../Downloads/placeholder.png; sourceTree = "<group>"; };
 		E09DBFBE2565216E0019F606 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -131,7 +151,9 @@
 		E0073531255ACCE20075F9D2 /* LoremIpsum-SocialApp */ = {
 			isa = PBXGroup;
 			children = (
-				E09DBFC725652A620019F606 /* MotelDatas */,
+				E09AE29C256BC20E00A8EFD6 /* Views */,
+				E09AE28B256BBC5200A8EFD6 /* Xibs */,
+				E09DBFC725652A620019F606 /* Models */,
 				E09DBFC625652A4E0019F606 /* Network */,
 				E09DBFC525652A360019F606 /* ViewControllers */,
 				E09DBFC325652A0B0019F606 /* Storyboards */,
@@ -152,6 +174,31 @@
 				E007354B255ACCE40075F9D2 /* Info.plist */,
 			);
 			path = "LoremIpsum-SocialAppTests";
+			sourceTree = "<group>";
+		};
+		E09AE28B256BBC5200A8EFD6 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				E09AE28C256BBC6600A8EFD6 /* PostsTableViewController.xib */,
+				E09AE28E256BBC9000A8EFD6 /* PostsTableViewCell.xib */,
+				E09AE290256BBCA400A8EFD6 /* CommentsTableViewController.xib */,
+				E09AE292256BBCAF00A8EFD6 /* CommentsTableViewCell.xib */,
+				E09AE294256BBCBA00A8EFD6 /* UserDetailsViewController.xib */,
+				E09AE296256BBCD500A8EFD6 /* PostViewController.xib */,
+				E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */,
+				E09AE29A256BBCFF00A8EFD6 /* PhotosCollectionViewCell.xib */,
+				E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		E09AE29C256BC20E00A8EFD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0A1EF482563B4DD007FD71B /* ThreePointGradientView.swift */,
+				E09AE29D256BC23C00A8EFD6 /* LoadingView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E09DBFC2256529FD0019F606 /* ViewModels */ = {
@@ -180,7 +227,6 @@
 				E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */,
 				E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */,
 				E0094894256287EB00FB4D9B /* UserDetailsViewController.swift */,
-				E0A1EF482563B4DD007FD71B /* ThreePointGradientView.swift */,
 				E0094892256286FD00FB4D9B /* PostViewController.swift */,
 				E009489C2562C41700FB4D9B /* PhotosViewController.swift */,
 				E09DBFBA256512730019F606 /* PhotosCollectionViewCell.swift */,
@@ -198,7 +244,7 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		E09DBFC725652A620019F606 /* MotelDatas */ = {
+		E09DBFC725652A620019F606 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E0A58375255AD3D500A81ECC /* Address.swift */,
@@ -211,7 +257,7 @@
 				E0A58371255AD3D500A81ECC /* Todo.swift */,
 				E0A58370255AD3D500A81ECC /* User.swift */,
 			);
-			path = MotelDatas;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E0DB2CEF255D2DCD00BF374C /* Images  */ = {
@@ -306,11 +352,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09AE293256BBCAF00A8EFD6 /* CommentsTableViewCell.xib in Resources */,
 				E007353F255ACCE40075F9D2 /* LaunchScreen.storyboard in Resources */,
+				E09AE295256BBCBA00A8EFD6 /* UserDetailsViewController.xib in Resources */,
 				E0A79B99255ED8B700766891 /* Main.storyboard in Resources */,
+				E09AE297256BBCD500A8EFD6 /* PostViewController.xib in Resources */,
 				E007353C255ACCE40075F9D2 /* Assets.xcassets in Resources */,
+				E09AE29B256BBCFF00A8EFD6 /* PhotosCollectionViewCell.xib in Resources */,
+				E09AE28F256BBC9000A8EFD6 /* PostsTableViewCell.xib in Resources */,
 				E0DB2CF3255D2DDF00BF374C /* icons8-no-camera-100.png in Resources */,
+				E09AE2A0256BC24F00A8EFD6 /* LoadingView.xib in Resources */,
+				E09AE291256BBCA400A8EFD6 /* CommentsTableViewController.xib in Resources */,
 				E09DBFBD2565153F0019F606 /* placeholder.png in Resources */,
+				E09AE28D256BBC6600A8EFD6 /* PostsTableViewController.xib in Resources */,
+				E09AE299256BBCE500A8EFD6 /* PhotosViewController.xib in Resources */,
 				E0DB2CF1255D2DDA00BF374C /* icons8-comments-100.png in Resources */,
 				E0A1EF472563B3B4007FD71B /* crayon-1030.png in Resources */,
 			);
@@ -341,6 +396,7 @@
 				E0A5837E255AD3D500A81ECC /* Address.swift in Sources */,
 				E0A79B9D255EDAEA00766891 /* PostsTableViewCell.swift in Sources */,
 				E0A58379255AD3D500A81ECC /* User.swift in Sources */,
+				E09AE29E256BC23C00A8EFD6 /* LoadingView.swift in Sources */,
 				E0A1EF492563B4DD007FD71B /* ThreePointGradientView.swift in Sources */,
 				E0094895256287EB00FB4D9B /* UserDetailsViewController.swift in Sources */,
 				E056087125626CC200ED0EB9 /* CommentsTableViewCell.swift in Sources */,

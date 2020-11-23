@@ -11,8 +11,8 @@ import UIKit
 class PostsTableViewController: UITableViewController,PostsCellDelegate {
     
     //MARK: Outlets
-    @IBOutlet var loadingView: UIView!
-    @IBOutlet weak var gradientView: ThreePointGradientView!
+//    @IBOutlet var loadingView: UIView!
+//    @IBOutlet weak var gradientView: ThreePointGradientView!
     
     //MARK: Properties
     
@@ -23,8 +23,8 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        showLoadingScreen()
+//
+//        showLoadingScreen()
         
         viewModel.showLoading = {
             if self.viewModel.isLoading{
@@ -129,48 +129,48 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
     }
     
     
-    func showLoadingScreen() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        // size.width have a setter, and view.bound.width is read only that's why I'm doing it like that
-        loadingView.bounds.size.width = view.bounds.width
-        loadingView.bounds.size.height = view.bounds.height
-        
-        
-        //This will center loading view to the parent view (super view)
-        loadingView.center = view.center
-        
-        //This will make the view transparent
-        loadingView.alpha = 0
-        
-        
-        view.addSubview(loadingView)
-        
-        UIView.animate(withDuration: 0.3, delay: 0.5, options: [], animations: {
-            self.loadingView.alpha = 1
-        }) {(success) in
-            self.animateGradientView()
-        }
-        
-    }
-    
-    func animateGradientView() {
-        UIView.animate(withDuration: 1, delay: 0.2, options: [],
-                       animations: {
-            self.gradientView.transform =
-                CGAffineTransform(translationX: 0, y: -1000)
-        }, completion: { (success) in
-            self.hideLoadingScreen()
-        })
-    }
-    
-    func hideLoadingScreen() {
-        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
-            self.loadingView.transform = CGAffineTransform(translationX: 0, y: 10)
-        }) { (success) in
-            UIView.animate(withDuration: 0.3, animations: {
-                 self.loadingView.transform = CGAffineTransform(translationX: 0, y: -1000)
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-        })
-        }
-    }
+//    func showLoadingScreen() {
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+//        // size.width have a setter, and view.bound.width is read only that's why I'm doing it like that
+//        loadingView.bounds.size.width = view.bounds.width
+//        loadingView.bounds.size.height = view.bounds.height
+//
+//
+//        //This will center loading view to the parent view (super view)
+//        loadingView.center = view.center
+//
+//        //This will make the view transparent
+//        loadingView.alpha = 0
+//
+//
+//        view.addSubview(loadingView)
+//
+//        UIView.animate(withDuration: 0.3, delay: 0.5, options: [], animations: {
+//            self.loadingView.alpha = 1
+//        }) {(success) in
+//            self.animateGradientView()
+//        }
+//
+//    }
+//
+//    func animateGradientView() {
+//        UIView.animate(withDuration: 1, delay: 0.2, options: [],
+//                       animations: {
+//            self.gradientView.transform =
+//                CGAffineTransform(translationX: 0, y: -1000)
+//        }, completion: { (success) in
+//            self.hideLoadingScreen()
+//        })
+//    }
+//
+//    func hideLoadingScreen() {
+//        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
+//            self.loadingView.transform = CGAffineTransform(translationX: 0, y: 10)
+//        }) { (success) in
+//            UIView.animate(withDuration: 0.3, animations: {
+//                 self.loadingView.transform = CGAffineTransform(translationX: 0, y: -1000)
+//                self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        })
+//        }
+//    }
 }
