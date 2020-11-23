@@ -40,7 +40,8 @@ class CommentsTableViewController: UITableViewController {
         
         let comment = comments[indexPath.row]
         cell.bodyLabel.text = comment.body
-        cell.nameLabel.text = comment.name
+        cell.titleLabel.text = comment.name
+        cell.commenterLabel.text = "By: \(comment.email)"
         // Configure the cell...
 
         return cell

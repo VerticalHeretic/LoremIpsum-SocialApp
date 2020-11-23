@@ -58,6 +58,8 @@
 		E09AE31C256BF41D00A8EFD6 /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = E09AE2FE256BF41D00A8EFD6 /* Icon-114.png */; };
 		E09AE31D256BF41D00A8EFD6 /* Icon-32.png in Resources */ = {isa = PBXBuildFile; fileRef = E09AE2FF256BF41D00A8EFD6 /* Icon-32.png */; };
 		E09AE31E256BF41D00A8EFD6 /* Icon-512.png in Resources */ = {isa = PBXBuildFile; fileRef = E09AE300256BF41D00A8EFD6 /* Icon-512.png */; };
+		E09AE321256BF7CC00A8EFD6 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09AE31F256BF7CC00A8EFD6 /* MainNavigationController.swift */; };
+		E09AE322256BF7CC00A8EFD6 /* MainNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE320256BF7CC00A8EFD6 /* MainNavigationController.xib */; };
 		E09DBFBB256512730019F606 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DBFBA256512730019F606 /* PhotosCollectionViewCell.swift */; };
 		E09DBFBD2565153F0019F606 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E09DBFBC2565153F0019F606 /* placeholder.png */; };
 		E09DBFBF2565216E0019F606 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DBFBE2565216E0019F606 /* Endpoint.swift */; };
@@ -147,6 +149,8 @@
 		E09AE2FE256BF41D00A8EFD6 /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
 		E09AE2FF256BF41D00A8EFD6 /* Icon-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-32.png"; sourceTree = "<group>"; };
 		E09AE300256BF41D00A8EFD6 /* Icon-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-512.png"; sourceTree = "<group>"; };
+		E09AE31F256BF7CC00A8EFD6 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		E09AE320256BF7CC00A8EFD6 /* MainNavigationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainNavigationController.xib; sourceTree = "<group>"; };
 		E09DBFBA256512730019F606 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		E09DBFBC2565153F0019F606 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = ../../../../Downloads/placeholder.png; sourceTree = "<group>"; };
 		E09DBFBE2565216E0019F606 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				E09AE296256BBCD500A8EFD6 /* PostViewController.xib */,
 				E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */,
 				E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */,
+				E09AE320256BF7CC00A8EFD6 /* MainNavigationController.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				E0094892256286FD00FB4D9B /* PostViewController.swift */,
 				E009489C2562C41700FB4D9B /* PhotosViewController.swift */,
 				E09DBFBA256512730019F606 /* PhotosCollectionViewCell.swift */,
+				E09AE31F256BF7CC00A8EFD6 /* MainNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				E09AE318256BF41D00A8EFD6 /* Icon-87.png in Resources */,
 				E09AE2A4256BD79100A8EFD6 /* PhotosCollectionViewCell.xib in Resources */,
 				E007353F255ACCE40075F9D2 /* LaunchScreen.storyboard in Resources */,
+				E09AE322256BF7CC00A8EFD6 /* MainNavigationController.xib in Resources */,
 				E09AE313256BF41D00A8EFD6 /* Icon-55.png in Resources */,
 				E09AE315256BF41D00A8EFD6 /* Icon-167.png in Resources */,
 				E09AE317256BF41D00A8EFD6 /* Icon-50.png in Resources */,
@@ -518,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09AE321256BF7CC00A8EFD6 /* MainNavigationController.swift in Sources */,
 				E0A5837D255AD3D500A81ECC /* Album.swift in Sources */,
 				E0A58378255AD3D500A81ECC /* Post.swift in Sources */,
 				E00A00DC25655CF800808600 /* PostsViewModel.swift in Sources */,

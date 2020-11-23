@@ -13,7 +13,7 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
     
     //MARK: Outlets
     @IBOutlet weak var photosCollectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingView: LoadingView!
     
     //MARK: Properties
     
@@ -28,10 +28,10 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
         
         viewModel.showLoading = {
             if self.viewModel.isLoading {
-                self.activityIndicator.startAnimating()
+                self.loadingView.loadingIndicator.startAnimating()
                 self.photosCollectionView.alpha = 0.0
             } else {
-                self.activityIndicator.stopAnimating()
+                self.loadingView.loadingIndicator.stopAnimating()
                 self.photosCollectionView.alpha = 1.0
             }
         }
