@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingView: UIView {
+class LoadingView: UIStackView {
 
     /*
     // Only override draw() if you perform custom drawing.
