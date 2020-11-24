@@ -20,6 +20,8 @@ class PostsTableViewCell: UITableViewCell {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var commentsCount: UILabel!
     @IBOutlet weak var userImageButton: UIButton!
+    @IBOutlet weak var commentsButton: UIButton!
+    @IBOutlet weak var userButton: UIButton!
     
     weak var delegate: PostsCellDelegate?
 

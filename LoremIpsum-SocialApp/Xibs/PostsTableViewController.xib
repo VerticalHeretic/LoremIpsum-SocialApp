@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cvg-vb-G8x" customClass="LoadingView" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
+                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cvg-vb-G8x" userLabel="LoadingView" customClass="LoadingView" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
                     <rect key="frame" x="20" y="348" width="374" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </stackView>

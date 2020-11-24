@@ -247,8 +247,8 @@
 				E09AE294256BBCBA00A8EFD6 /* UserDetailsViewController.xib */,
 				E09AE296256BBCD500A8EFD6 /* PostViewController.xib */,
 				E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */,
-				E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */,
 				E09AE320256BF7CC00A8EFD6 /* MainNavigationController.xib */,
+				E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";

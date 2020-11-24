@@ -22,17 +22,22 @@ class PostsTableViewController: UIViewController,PostsCellDelegate, UITableViewD
     let viewModel = PostsViewModel(client: JSONPlaceholderClient())
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         viewModel.showLoading = {
             if self.viewModel.isLoading{
+//                self.LoadingView.loadingIndicator.startAnimating()
                 self.postsTable.alpha = 0.0
             } else {
+//                self.LoadingView.loadingIndicator.stopAnimating()
                 self.postsTable.alpha = 1.0
             }
         }
+        
+        self.postsTable.alpha = 0.0
         
         viewModel.showError = { error in
             print(error)
@@ -55,7 +60,8 @@ class PostsTableViewController: UIViewController,PostsCellDelegate, UITableViewD
         
         let nibName = UINib(nibName: "PostsTableViewCell", bundle: nil)
         postsTable.register(nibName, forCellReuseIdentifier: "PostsTableViewCell")
-
+        
+        navigateToOtherView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,48 +92,22 @@ class PostsTableViewController: UIViewController,PostsCellDelegate, UITableViewD
         
         return cell
         }
-
-   
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch(segue.identifier ?? "") {
-        case "fromPostCommentsSegue":
-            guard let commentsVC = segue.destination as?
-                CommentsTableViewController else {
-                    fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            commentsVC.comments = viewModel.findCommensByPostId(PostId: viewModel.postsCellViewModels[postPath.row].post.id)
-        case "PostDetailsSegue":
-            guard let postVC = segue.destination as?
-                PostViewController else {
-                     fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            guard let selectedPostCell = sender as? PostsTableViewCell else {
-                fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            guard let indexPath = postsTable.indexPath(for: selectedPostCell) else {
-                fatalError("The selected cell is not being displayed by the table")
-            }
-            postVC.post = viewModel.postsCellViewModels[indexPath.row]
-        case "fromPostUserDetailsSegue":
-            guard let userVC = segue.destination as?
-                UserDetailsViewController else {
-                     fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            userVC.user = viewModel.findUserByUserId(UserId: viewModel.postsCellViewModels[postPath.row].post.userId)
-            
-        default:
-            fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
-        
-        }
+    
+    // Set hight of the row 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
-        
+
     func btnPostTapped(cell: PostsTableViewCell){
         let indexPath = self.postsTable.indexPath(for: cell)
         print(indexPath!.row)
         self.postPath = indexPath
+
+    }
+    
+    private func navigateToOtherView(){
+        let commentsVC = UIViewController(nibName: "CommentsTableViewController", bundle: nil)
+        self.navigationController?.pushViewController(commentsVC, animated: true)
     }
     
     

@@ -107,8 +107,10 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bodyLabel" destination="QTS-dp-oH1" id="XqR-wu-XK9"/>
+                <outlet property="commentsButton" destination="clR-aH-DvB" id="jIY-oa-LxY"/>
                 <outlet property="commentsCount" destination="k4N-7F-Oyz" id="zaG-iL-Snv"/>
                 <outlet property="titleLabel" destination="qV0-2F-vKm" id="6wU-uh-E3j"/>
+                <outlet property="userButton" destination="uHz-iS-A9k" id="BmK-n3-WTE"/>
                 <outlet property="userImageButton" destination="uHz-iS-A9k" id="wVc-AW-0ET"/>
                 <outlet property="userLabel" destination="arL-DE-TlS" id="GSP-h5-SuF"/>
             </connections>
