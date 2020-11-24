@@ -38,6 +38,7 @@ class PostsViewModel {
     }
     
     var postsCellViewModels : [PostsCellViewModel] = []
+    private let dispatchGroup = DispatchGroup()
     
     //MARK: UI
     var isLoading: Bool = false {
@@ -55,7 +56,11 @@ class PostsViewModel {
         self.client = client
     }
     
-    func fetchPosts(){
+    
+    
+     func fetchPosts(){
+        dispatchGroup.enter()
+        os_log("PostsViewModel -> Starting posts fetching")
         if let client = client as? JSONPlaceholderClient {
             self.isLoading = true
             let endpoint = JsonPlaceHolderEndpoint.posts
@@ -63,14 +68,20 @@ class PostsViewModel {
                 switch either {
                     case .success(let posts):
                         self.posts = posts
+                        os_log("PostsViewModel -> Ended posts fetching")
+                        self.dispatchGroup.leave()
                     case .error(let error):
                         self.showError?(error)
                 }
             }
         }
+
     }
     
+    
     func fetchComments(){
+        dispatchGroup.enter()
+        os_log("PostsViewModel -> Starting comments fetching")
         if let client = client as? JSONPlaceholderClient {
             self.isLoading = true
             let endpoint = JsonPlaceHolderEndpoint.comments
@@ -78,6 +89,8 @@ class PostsViewModel {
                 switch either {
                     case .success(let comments):
                         self.comments = comments
+                        os_log("PostsViewModel -> Ended comments fetching")
+                        self.dispatchGroup.leave()
                     case .error(let error):
                         self.showError?(error)
                 }
@@ -85,7 +98,9 @@ class PostsViewModel {
         }
     }
     
-    func fetchUsers(){
+     func fetchUsers(){
+        dispatchGroup.enter()
+        os_log("PostsViewModel -> Starting users fetching")
         if let client = client as? JSONPlaceholderClient {
             self.isLoading = true
             let endpoint = JsonPlaceHolderEndpoint.users
@@ -93,28 +108,28 @@ class PostsViewModel {
                 switch either {
                     case .success(let users):
                         self.users = users
+                        os_log("PostsViewModel -> Ended users fetching")
+                        self.dispatchGroup.leave()
                     case .error(let error):
                         self.showError?(error)
                 }
             }
         }
     }
-
     
     
-    private func fetchPost() {
-        let group = DispatchGroup()
+     private func fetchPost() {
         
         self.posts.forEach { (post) in
-            DispatchQueue.global(qos: .background).async(group: group) {
-                group.enter()
+            DispatchQueue.global(qos: .userInteractive).async(group: dispatchGroup) {
+                self.dispatchGroup.enter()
                 
                 self.postsCellViewModels.append(PostsCellViewModel(post: post, user: self.findUserByUserId(UserId: post.userId), comments: self.findCommensByPostId(PostId: post.id)))
-                group.leave()
+                self.dispatchGroup.leave()
             }
         }
-        group.notify(queue: .main) {
-            print("Finished fetching posts")
+        dispatchGroup.notify(queue: .main) {
+            os_log("PostsViewModel -> Finished fetching posts")
             self.isLoading = false
             self.reloadData?()
         }

@@ -13,26 +13,32 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
     
     //MARK: Outlets
     @IBOutlet weak var photosCollectionView: UICollectionView!
-    @IBOutlet weak var loadingView: LoadingView!
     
     //MARK: Properties
-    
-    
     var user : User!
     let viewModel = PhotosViewModel(client: JSONPlaceholderClient())
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View did load")
         
+        let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        self.view.addSubview(loadingView)
+        
+        self.navigationItem.title = "User: \(self.user.username)"
+        
+        let nibName = UINib(nibName: "PhotosCollectionViewCell", bundle: nil)
+        photosCollectionView.register(nibName, forCellWithReuseIdentifier: "PhotosCollectionViewCell")
         
         viewModel.showLoading = {
             if self.viewModel.isLoading {
-                self.loadingView.loadingIndicator.startAnimating()
+                loadingView.loadingIndicator.startAnimating()
                 self.photosCollectionView.alpha = 0.0
+                self.navigationController?.navigationBar.isHidden = true
             } else {
-                self.loadingView.loadingIndicator.stopAnimating()
+                loadingView.loadingIndicator.stopAnimating()
                 self.photosCollectionView.alpha = 1.0
+                self.navigationController?.navigationBar.isHidden = false
+                loadingView.alpha = 0.0
             }
         }
         
@@ -45,11 +51,10 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
         }
         
         viewModel.fetchPhotos()
+        
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.photosCellViewModels.count

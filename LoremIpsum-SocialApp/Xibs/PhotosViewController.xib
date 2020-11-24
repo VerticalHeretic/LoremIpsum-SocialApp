@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotosViewController" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
             <connections>
-                <outlet property="loadingView" destination="6CR-VN-ziX" id="MhT-io-2e1"/>
                 <outlet property="photosCollectionView" destination="Dh0-CQ-tRh" id="tdf-uD-w4C"/>
                 <outlet property="view" destination="D8x-1M-yuQ" id="en9-LN-fkb"/>
             </connections>
@@ -18,11 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="6CR-VN-ziX" userLabel="loadingView" customClass="LoadingView" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="348" width="414" height="200"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <viewLayoutGuide key="safeArea" id="QxS-hN-adg"/>
-                </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" id="Dh0-CQ-tRh">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

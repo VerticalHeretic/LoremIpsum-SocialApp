@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostsTableViewController" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
             <connections>
-                <outlet property="LoadingView" destination="cvg-vb-G8x" id="fln-DK-4nx"/>
                 <outlet property="postsTable" destination="4z6-JP-SIX" id="7qb-QH-01c"/>
                 <outlet property="view" destination="46J-EH-C3e" id="HdF-Nm-CzY"/>
             </connections>
@@ -19,10 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cvg-vb-G8x" userLabel="LoadingView" customClass="LoadingView" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
-                    <rect key="frame" x="20" y="348" width="374" height="200"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4z6-JP-SIX" userLabel="Posts Table">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

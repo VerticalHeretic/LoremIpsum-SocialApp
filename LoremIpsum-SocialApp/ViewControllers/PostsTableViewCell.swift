@@ -9,8 +9,10 @@
 import UIKit
 
 protocol PostsCellDelegate: AnyObject {
-    func btnPostTapped(cell: PostsTableViewCell)
+    func btnCommentsTapped(cell: PostsTableViewCell)
+    func btnUserTapped(cell: PostsTableViewCell)
 }
+
 
 class PostsTableViewCell: UITableViewCell {
     
@@ -38,11 +40,11 @@ class PostsTableViewCell: UITableViewCell {
     }
         
     @IBAction func btnCommentsTapped(sender: UIButton) {
-        delegate?.btnPostTapped(cell: self)
+        delegate?.btnCommentsTapped(cell: self)
     }
     
     @IBAction func btnUserTapped(sender: UIButton) {
-        delegate?.btnPostTapped(cell: self)
+        delegate?.btnUserTapped(cell: self)
     }
     
     func commonInit(titleText: String, bodyText: String, userName: String, commentsCount: String){

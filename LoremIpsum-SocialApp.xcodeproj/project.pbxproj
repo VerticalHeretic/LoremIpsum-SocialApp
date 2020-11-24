@@ -16,6 +16,8 @@
 		E0094895256287EB00FB4D9B /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0094894256287EB00FB4D9B /* UserDetailsViewController.swift */; };
 		E009489D2562C41700FB4D9B /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E009489C2562C41700FB4D9B /* PhotosViewController.swift */; };
 		E00A00DC25655CF800808600 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00A00DB25655CF800808600 /* PostsViewModel.swift */; };
+		E0511E8F256D43BE0027FB36 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0511E8E256D43BE0027FB36 /* LoadingView.swift */; };
+		E0511E91256D43D60027FB36 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0511E90256D43D60027FB36 /* LoadingView.xib */; };
 		E056087125626CC200ED0EB9 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */; };
 		E056087325626CD800ED0EB9 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */; };
 		E09AE28D256BBC6600A8EFD6 /* PostsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE28C256BBC6600A8EFD6 /* PostsTableViewController.xib */; };
@@ -25,8 +27,7 @@
 		E09AE295256BBCBA00A8EFD6 /* UserDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE294256BBCBA00A8EFD6 /* UserDetailsViewController.xib */; };
 		E09AE297256BBCD500A8EFD6 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE296256BBCD500A8EFD6 /* PostViewController.xib */; };
 		E09AE299256BBCE500A8EFD6 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */; };
-		E09AE29E256BC23C00A8EFD6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09AE29D256BC23C00A8EFD6 /* LoadingView.swift */; };
-		E09AE2A0256BC24F00A8EFD6 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */; };
+		E09AE2A0256BC24F00A8EFD6 /* LoadingViewOld.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE29F256BC24F00A8EFD6 /* LoadingViewOld.xib */; };
 		E09AE2A4256BD79100A8EFD6 /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE2A3256BD79100A8EFD6 /* PhotosCollectionViewCell.xib */; };
 		E09AE301256BF41D00A8EFD6 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = E09AE2E3256BF41D00A8EFD6 /* Icon-29.png */; };
 		E09AE302256BF41D00A8EFD6 /* Icon-16.png in Resources */ = {isa = PBXBuildFile; fileRef = E09AE2E4256BF41D00A8EFD6 /* Icon-16.png */; };
@@ -107,6 +108,8 @@
 		E0094894256287EB00FB4D9B /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		E009489C2562C41700FB4D9B /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		E00A00DB25655CF800808600 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		E0511E8E256D43BE0027FB36 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E0511E90256D43D60027FB36 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		E056087025626CC200ED0EB9 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		E056087225626CD800ED0EB9 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		E09AE28C256BBC6600A8EFD6 /* PostsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsTableViewController.xib; sourceTree = "<group>"; };
@@ -116,8 +119,7 @@
 		E09AE294256BBCBA00A8EFD6 /* UserDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsViewController.xib; sourceTree = "<group>"; };
 		E09AE296256BBCD500A8EFD6 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
-		E09AE29D256BC23C00A8EFD6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		E09AE29F256BC24F00A8EFD6 /* LoadingViewOld.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewOld.xib; sourceTree = "<group>"; };
 		E09AE2A3256BD79100A8EFD6 /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
 		E09AE2E3256BF41D00A8EFD6 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		E09AE2E4256BF41D00A8EFD6 /* Icon-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-16.png"; sourceTree = "<group>"; };
@@ -248,7 +250,8 @@
 				E09AE296256BBCD500A8EFD6 /* PostViewController.xib */,
 				E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */,
 				E09AE320256BF7CC00A8EFD6 /* MainNavigationController.xib */,
-				E09AE29F256BC24F00A8EFD6 /* LoadingView.xib */,
+				E09AE29F256BC24F00A8EFD6 /* LoadingViewOld.xib */,
+				E0511E90256D43D60027FB36 /* LoadingView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -257,7 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				E0A1EF482563B4DD007FD71B /* ThreePointGradientView.swift */,
-				E09AE29D256BC23C00A8EFD6 /* LoadingView.swift */,
+				E0511E8E256D43BE0027FB36 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E09AE316256BF41D00A8EFD6 /* Icon-40.png in Resources */,
+				E0511E91256D43D60027FB36 /* LoadingView.xib in Resources */,
 				E09AE293256BBCAF00A8EFD6 /* CommentsTableViewCell.xib in Resources */,
 				E09AE30B256BF41D00A8EFD6 /* Icon-152.png in Resources */,
 				E09AE30A256BF41D00A8EFD6 /* Icon-1024.png in Resources */,
@@ -486,7 +490,7 @@
 				E09AE28F256BBC9000A8EFD6 /* PostsTableViewCell.xib in Resources */,
 				E09AE305256BF41D00A8EFD6 /* Icon-88.png in Resources */,
 				E0DB2CF3255D2DDF00BF374C /* icons8-no-camera-100.png in Resources */,
-				E09AE2A0256BC24F00A8EFD6 /* LoadingView.xib in Resources */,
+				E09AE2A0256BC24F00A8EFD6 /* LoadingViewOld.xib in Resources */,
 				E09AE314256BF41D00A8EFD6 /* Icon-172.png in Resources */,
 				E09AE291256BBCA400A8EFD6 /* CommentsTableViewController.xib in Resources */,
 				E09AE308256BF41D00A8EFD6 /* Icon-60.png in Resources */,
@@ -533,11 +537,11 @@
 				E0A79B9B255EDAC300766891 /* PostsTableViewController.swift in Sources */,
 				E0094893256286FD00FB4D9B /* PostViewController.swift in Sources */,
 				E0A1EF5025640141007FD71B /* APIClient.swift in Sources */,
+				E0511E8F256D43BE0027FB36 /* LoadingView.swift in Sources */,
 				E09DBFBB256512730019F606 /* PhotosCollectionViewCell.swift in Sources */,
 				E0A5837E255AD3D500A81ECC /* Address.swift in Sources */,
 				E0A79B9D255EDAEA00766891 /* PostsTableViewCell.swift in Sources */,
 				E0A58379255AD3D500A81ECC /* User.swift in Sources */,
-				E09AE29E256BC23C00A8EFD6 /* LoadingView.swift in Sources */,
 				E0A1EF492563B4DD007FD71B /* ThreePointGradientView.swift in Sources */,
 				E0094895256287EB00FB4D9B /* UserDetailsViewController.swift in Sources */,
 				E056087125626CC200ED0EB9 /* CommentsTableViewCell.swift in Sources */,

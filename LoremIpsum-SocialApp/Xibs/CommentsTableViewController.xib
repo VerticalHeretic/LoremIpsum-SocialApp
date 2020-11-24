@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsTableViewController" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
             <connections>
+                <outlet property="commentsTable" destination="Bg3-ui-IlR" id="kLF-7r-Y9V"/>
                 <outlet property="view" destination="Bg3-ui-IlR" id="IJC-3g-RO3"/>
             </connections>
         </placeholder>
