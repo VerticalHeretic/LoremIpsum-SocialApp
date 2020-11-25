@@ -43,7 +43,7 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CommentsTableViewCell else {
             fatalError("The dequeue cell is not an instance of \(cellIdentifier)")
         }
-        
+        print(cell)
         let comment = comments[indexPath.row]
         cell.bodyLabel.text = comment.body
         cell.titleLabel.text = comment.name

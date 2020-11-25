@@ -70,6 +70,7 @@ class PostsTableViewController: UIViewController, UITableViewDataSource, UITable
             self.postsTable.reloadData()
         }
         
+        
         viewModel.fetchUsers()
         viewModel.fetchComments()
         viewModel.fetchPosts()

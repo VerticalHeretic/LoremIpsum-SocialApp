@@ -26,8 +26,10 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
         
         self.navigationItem.title = "User: \(self.user.username)"
         
-        let nibName = UINib(nibName: "PhotosCollectionViewCell", bundle: nil)
-        photosCollectionView.register(nibName, forCellWithReuseIdentifier: "PhotosCollectionViewCell")
+        self.photosCollectionView.register(UINib(nibName: "PhotosCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotosCollectionViewCell")
+        
+        self.photosCollectionView.delegate = self
+        self.photosCollectionView.dataSource = self
         
         viewModel.showLoading = {
             if self.viewModel.isLoading {
@@ -61,7 +63,8 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
     }
        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath as IndexPath) as! PhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCollectionViewCell", for: indexPath as IndexPath) as! PhotosCollectionViewCell
+        print(cell)
         let image = viewModel.photosCellViewModels[indexPath.item].image
         cell.photoImageView.image = image
         return cell
