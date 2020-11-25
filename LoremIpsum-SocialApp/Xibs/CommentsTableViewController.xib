@@ -9,15 +9,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentsTableViewController" customModule="LoremIpsum_SocialApp" customModuleProvider="target">
             <connections>
-                <outlet property="commentsTable" destination="Bg3-ui-IlR" id="kLF-7r-Y9V"/>
-                <outlet property="view" destination="Bg3-ui-IlR" id="IJC-3g-RO3"/>
+                <outlet property="commentsTable" destination="Bg3-ui-IlR" id="4bs-7d-pQZ"/>
+                <outlet property="view" destination="z7C-pk-ceU" id="vD6-xo-xtc"/>
             </connections>
         </placeholder>
         <view contentMode="scaleToFill" id="z7C-pk-ceU">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bg3-ui-IlR">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bg3-ui-IlR" userLabel="commentsTableView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>

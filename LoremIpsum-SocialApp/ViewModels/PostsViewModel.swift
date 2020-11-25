@@ -110,15 +110,31 @@ class PostsViewModel {
     }
     
     
-     private func fetchPost() {
+    private func fetchPost() {
         let dispatchGroup = DispatchGroup()
         self.posts.forEach { (post) in
-            DispatchQueue.global(qos: .userInteractive).async(group: dispatchGroup) {
-                dispatchGroup.enter()
-                
-                self.postsCellViewModels.append(PostsCellViewModel(post: post, user: self.findUserByUserId(UserId: post.userId), comments: self.findCommensByPostId(PostId: post.id)))
-                dispatchGroup.leave()
+            
+            dispatchGroup.enter()
+            os_log("fetchPost -> Dispatch Group enter -> User")
+            guard let user:User = self.findUserByUserId(UserId: post.userId) else {
+                fatalError("User not found")
             }
+            os_log("fetchPost -> Dispatch Group leave -> User")
+            dispatchGroup.leave()
+            dispatchGroup.enter()
+            os_log("fetchPost -> Dispatch Group enter -> Comments")
+            guard let comments:Comments = self.findCommensByPostId(PostId: post.id) else {
+                fatalError("Comments check failed")
+            }
+            os_log("fetchPost -> Dispatch Group leave -> Comments")
+            dispatchGroup.leave()
+            
+            os_log("fetchPost -> Dispatch Group enter -> Post")
+            dispatchGroup.enter()
+            self.postsCellViewModels.append(PostsCellViewModel(post: post, user: self.findUserByUserId(UserId: post.userId), comments: self.findCommensByPostId(PostId: post.id)))
+            os_log("fetchPost -> Dispatch Group leave -> Post")
+            dispatchGroup.leave()
+            
         }
         dispatchGroup.notify(queue: .main) {
             os_log("PostsViewModel -> Finished fetching posts")
@@ -132,14 +148,7 @@ class PostsViewModel {
     //MARK: Supporting Methods
       
     func findUserByUserId(UserId:Int) -> User{
-        var userPlaceholder : User!
-          for user in self.users {
-              if(user.id == UserId){
-                  userPlaceholder = user
-              }
-          }
-
-        return userPlaceholder
+        return users.first {$0.id == UserId}!
       }
       
     func commentsCount(PostId:Int) -> String{

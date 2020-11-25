@@ -20,13 +20,13 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(comments)
-        
-        let nibName = UINib(nibName: "CommentsTableViewCell", bundle: nil)
-        commentsTable.register(nibName, forCellReuseIdentifier: "CommentsTableViewCell")
         
         commentsTable.dataSource = self
         commentsTable.delegate = self
+        
+        commentsTable.register(UINib(nibName: "CommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentsTableViewCell")
+     
+
     }
 
     // MARK: - Table view data source
@@ -43,7 +43,7 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CommentsTableViewCell else {
             fatalError("The dequeue cell is not an instance of \(cellIdentifier)")
         }
-        print(cell)
+
         let comment = comments[indexPath.row]
         cell.bodyLabel.text = comment.body
         cell.titleLabel.text = comment.name
@@ -53,5 +53,4 @@ class CommentsTableViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
    
-
 }

@@ -27,7 +27,6 @@
 		E09AE295256BBCBA00A8EFD6 /* UserDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE294256BBCBA00A8EFD6 /* UserDetailsViewController.xib */; };
 		E09AE297256BBCD500A8EFD6 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE296256BBCD500A8EFD6 /* PostViewController.xib */; };
 		E09AE299256BBCE500A8EFD6 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */; };
-		E09AE2A0256BC24F00A8EFD6 /* LoadingViewOld.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE29F256BC24F00A8EFD6 /* LoadingViewOld.xib */; };
 		E09AE2A4256BD79100A8EFD6 /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09AE2A3256BD79100A8EFD6 /* PhotosCollectionViewCell.xib */; };
 		E09AE301256BF41D00A8EFD6 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = E09AE2E3256BF41D00A8EFD6 /* Icon-29.png */; };
 		E09AE302256BF41D00A8EFD6 /* Icon-16.png in Resources */ = {isa = PBXBuildFile; fileRef = E09AE2E4256BF41D00A8EFD6 /* Icon-16.png */; };
@@ -119,7 +118,6 @@
 		E09AE294256BBCBA00A8EFD6 /* UserDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsViewController.xib; sourceTree = "<group>"; };
 		E09AE296256BBCD500A8EFD6 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
-		E09AE29F256BC24F00A8EFD6 /* LoadingViewOld.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewOld.xib; sourceTree = "<group>"; };
 		E09AE2A3256BD79100A8EFD6 /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
 		E09AE2E3256BF41D00A8EFD6 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		E09AE2E4256BF41D00A8EFD6 /* Icon-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-16.png"; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 				E09AE296256BBCD500A8EFD6 /* PostViewController.xib */,
 				E09AE298256BBCE500A8EFD6 /* PhotosViewController.xib */,
 				E09AE320256BF7CC00A8EFD6 /* MainNavigationController.xib */,
-				E09AE29F256BC24F00A8EFD6 /* LoadingViewOld.xib */,
 				E0511E90256D43D60027FB36 /* LoadingView.xib */,
 			);
 			path = Xibs;
@@ -490,7 +487,6 @@
 				E09AE28F256BBC9000A8EFD6 /* PostsTableViewCell.xib in Resources */,
 				E09AE305256BF41D00A8EFD6 /* Icon-88.png in Resources */,
 				E0DB2CF3255D2DDF00BF374C /* icons8-no-camera-100.png in Resources */,
-				E09AE2A0256BC24F00A8EFD6 /* LoadingViewOld.xib in Resources */,
 				E09AE314256BF41D00A8EFD6 /* Icon-172.png in Resources */,
 				E09AE291256BBCA400A8EFD6 /* CommentsTableViewController.xib in Resources */,
 				E09AE308256BF41D00A8EFD6 /* Icon-60.png in Resources */,
