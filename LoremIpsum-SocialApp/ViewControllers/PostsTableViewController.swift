@@ -8,31 +8,58 @@
 
 import UIKit
 
-class PostsTableViewController: UITableViewController,PostsCellDelegate {
+
+class PostsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,PostsCellDelegate {
     
     //MARK: Outlets
-    @IBOutlet var loadingView: UIView!
-    @IBOutlet weak var gradientView: ThreePointGradientView!
+    
+    @IBOutlet weak var postsTable: UITableView!
+    
     
     //MARK: Properties
     
     // This variable is used when picking user on comments on cell
     var postPath : IndexPath!
     let viewModel = PostsViewModel(client: JSONPlaceholderClient())
-    
-    
+    let mainColor = UIColor(displayP3Red: 255.0, green: 98.0, blue: 0.0, alpha:1.0 )
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        showLoadingScreen()
+        
+        if #available(iOS 13.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            let style = UINavigationBarAppearance()
+            style.configureWithDefaultBackground()
+            style.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 18), .foregroundColor: UIColor.black]
+            self.navigationController?.navigationBar.standardAppearance = style
+            self.navigationController?.navigationBar.compactAppearance = style
+            
+            //Cofiguration of large style
+            let largeStyle = UINavigationBarAppearance()
+            largeStyle.configureWithTransparentBackground()
+            largeStyle.largeTitleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 36), .foregroundColor: UIColor.black]
+            self.navigationController?.navigationBar.scrollEdgeAppearance = largeStyle
+        }
+        
+        self.title = "Posts"
+        
+        
+        let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        self.view.addSubview(loadingView)
         
         viewModel.showLoading = {
             if self.viewModel.isLoading{
-                self.tableView.alpha = 0.0
+                loadingView.loadingIndicator.startAnimating()
+                self.postsTable.alpha = 0.0
+                self.navigationController?.navigationBar.isHidden = true
             } else {
-                self.tableView.alpha = 1.0
+                loadingView.loadingIndicator.stopAnimating()
+                loadingView.alpha = 0.0
+                self.postsTable.alpha = 1.0
+                self.navigationController?.navigationBar.isHidden = false
             }
         }
+        
         
         viewModel.showError = { error in
             print(error)
@@ -40,32 +67,33 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
         }
         
         viewModel.reloadData = {
-            self.tableView.reloadData()
+            self.postsTable.reloadData()
         }
         
-        viewModel.fetchUsers()
-        print("Users fetched! )")
-        viewModel.fetchComments()
-        print("Comments fetched!)")
-        viewModel.fetchPosts()
-        print("Posts fetched!)")
         
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        viewModel.fetchUsers()
+        viewModel.fetchComments()
+        viewModel.fetchPosts()
+        
+        postsTable.dataSource = self
+        postsTable.delegate = self
+        
+        let nibName = UINib(nibName: "PostsTableViewCell", bundle: nil)
+        postsTable.register(nibName, forCellReuseIdentifier: "PostsTableViewCell")
+        
+        
     }
     
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print("Posts: \(viewModel.postsCellViewModels.count)")
         return viewModel.postsCellViewModels.count
+        
     }
-
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "PostsTableViewCell"
         
@@ -74,101 +102,48 @@ class PostsTableViewController: UITableViewController,PostsCellDelegate {
         }
         let post = viewModel.postsCellViewModels[indexPath.row]
         
-        cell.titleLabel.text = post.post.title
-        cell.bodyLabel.text = post.post.body
-        cell.userLabel.text = post.user.username
-        cell.commentsCount.text = viewModel.commentsCount(PostId: post.post.id)
         cell.delegate = self
+        cell.commonInit(titleText: post.post.title, bodyText: post.post.body, userName: post.user.username, commentsCount: viewModel.commentsCount(PostId: post.post.id))
+        
         
         return cell
-        }
-
-   
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch(segue.identifier ?? "") {
-        case "fromPostCommentsSegue":
-            guard let commentsVC = segue.destination as?
-                CommentsTableViewController else {
-                    fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            commentsVC.comments = viewModel.findCommensByPostId(PostId: viewModel.postsCellViewModels[postPath.row].post.id)
-        case "PostDetailsSegue":
-            guard let postVC = segue.destination as?
-                PostViewController else {
-                     fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            guard let selectedPostCell = sender as? PostsTableViewCell else {
-                fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            guard let indexPath = tableView.indexPath(for: selectedPostCell) else {
-                fatalError("The selected cell is not being displayed by the table")
-            }
-            postVC.post = viewModel.postsCellViewModels[indexPath.row]
-        case "fromPostUserDetailsSegue":
-            guard let userVC = segue.destination as?
-                UserDetailsViewController else {
-                     fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            userVC.user = viewModel.findUserByUserId(UserId: viewModel.postsCellViewModels[postPath.row].post.userId)
-            
-        default:
-            fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
-        
-        }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    func btnPostTapped(cell: PostsTableViewCell){
-        let indexPath = self.tableView.indexPath(for: cell)
+        let postVC = PostViewController()
+        postVC.post = viewModel.postsCellViewModels[indexPath.row]
+        self.navigationController?.pushViewController(postVC, animated: true)
+    }
+    
+    // Set hight of the row 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    func btnCommentsTapped(cell: PostsTableViewCell){
+        let indexPath = self.postsTable.indexPath(for: cell)
         print(indexPath!.row)
         self.postPath = indexPath
+        
+        let commentsVC = CommentsTableViewController()
+        commentsVC.comments = self.viewModel.findCommensByPostId(PostId: viewModel.postsCellViewModels[postPath.row].post.userId)
+
+        self.navigationController?.pushViewController(commentsVC, animated: true)
+    }
+    
+    func btnUserTapped(cell: PostsTableViewCell) {
+        let indexPath = self.postsTable.indexPath(for: cell)
+        print(indexPath!.row)
+        self.postPath = indexPath
+        
+        let userVC  = UserDetailsViewController()
+        userVC.user = viewModel.findUserByUserId(UserId: viewModel.postsCellViewModels[postPath.row].post.userId)
+ 
+        self.navigationController?.pushViewController(userVC, animated: true)
     }
     
     
-    func showLoadingScreen() {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        // size.width have a setter, and view.bound.width is read only that's why I'm doing it like that
-        loadingView.bounds.size.width = view.bounds.width
-        loadingView.bounds.size.height = view.bounds.height
-        
-        
-        //This will center loading view to the parent view (super view)
-        loadingView.center = view.center
-        
-        //This will make the view transparent
-        loadingView.alpha = 0
-        
-        
-        view.addSubview(loadingView)
-        
-        UIView.animate(withDuration: 0.3, delay: 0.5, options: [], animations: {
-            self.loadingView.alpha = 1
-        }) {(success) in
-            self.animateGradientView()
-        }
-        
-    }
     
-    func animateGradientView() {
-        UIView.animate(withDuration: 1, delay: 0.2, options: [],
-                       animations: {
-            self.gradientView.transform =
-                CGAffineTransform(translationX: 0, y: -1000)
-        }, completion: { (success) in
-            self.hideLoadingScreen()
-        })
-    }
     
-    func hideLoadingScreen() {
-        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
-            self.loadingView.transform = CGAffineTransform(translationX: 0, y: 10)
-        }) { (success) in
-            UIView.animate(withDuration: 0.3, animations: {
-                 self.loadingView.transform = CGAffineTransform(translationX: 0, y: -1000)
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-        })
-        }
-    }
 }

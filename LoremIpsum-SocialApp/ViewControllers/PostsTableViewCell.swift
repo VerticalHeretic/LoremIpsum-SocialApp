@@ -9,8 +9,10 @@
 import UIKit
 
 protocol PostsCellDelegate: AnyObject {
-    func btnPostTapped(cell: PostsTableViewCell)
+    func btnCommentsTapped(cell: PostsTableViewCell)
+    func btnUserTapped(cell: PostsTableViewCell)
 }
+
 
 class PostsTableViewCell: UITableViewCell {
     
@@ -19,11 +21,15 @@ class PostsTableViewCell: UITableViewCell {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var commentsCount: UILabel!
+    @IBOutlet weak var userImageButton: UIButton!
+    @IBOutlet weak var commentsButton: UIButton!
+    @IBOutlet weak var userButton: UIButton!
     
     weak var delegate: PostsCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization
     }
 
@@ -34,10 +40,18 @@ class PostsTableViewCell: UITableViewCell {
     }
         
     @IBAction func btnCommentsTapped(sender: UIButton) {
-        delegate?.btnPostTapped(cell: self)
+        delegate?.btnCommentsTapped(cell: self)
     }
     
     @IBAction func btnUserTapped(sender: UIButton) {
-        delegate?.btnPostTapped(cell: self)
+        delegate?.btnUserTapped(cell: self)
     }
+    
+    func commonInit(titleText: String, bodyText: String, userName: String, commentsCount: String){
+        self.titleLabel.text = titleText
+        self.userLabel.text = userName
+        self.bodyLabel.text = bodyText
+        self.commentsCount.text = commentsCount
+    }
+    
 }

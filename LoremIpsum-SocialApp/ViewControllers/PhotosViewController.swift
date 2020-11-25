@@ -13,26 +13,34 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
     
     //MARK: Outlets
     @IBOutlet weak var photosCollectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //MARK: Properties
-    
-    
     var user : User!
     let viewModel = PhotosViewModel(client: JSONPlaceholderClient())
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View did load")
         
+        let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        self.view.addSubview(loadingView)
+        
+        self.navigationItem.title = "User: \(self.user.username)"
+        
+        self.photosCollectionView.register(UINib(nibName: "PhotosCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotosCollectionViewCell")
+        
+        self.photosCollectionView.delegate = self
+        self.photosCollectionView.dataSource = self
         
         viewModel.showLoading = {
             if self.viewModel.isLoading {
-                self.activityIndicator.startAnimating()
+                loadingView.loadingIndicator.startAnimating()
                 self.photosCollectionView.alpha = 0.0
+                self.navigationController?.navigationBar.isHidden = true
             } else {
-                self.activityIndicator.stopAnimating()
+                loadingView.loadingIndicator.stopAnimating()
                 self.photosCollectionView.alpha = 1.0
+                self.navigationController?.navigationBar.isHidden = false
+                loadingView.alpha = 0.0
             }
         }
         
@@ -45,18 +53,18 @@ class PhotosViewController: UIViewController,UICollectionViewDataSource, UIColle
         }
         
         viewModel.fetchPhotos()
+        
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.photosCellViewModels.count
     }
        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath as IndexPath) as! PhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCollectionViewCell", for: indexPath as IndexPath) as! PhotosCollectionViewCell
+        print(cell)
         let image = viewModel.photosCellViewModels[indexPath.item].image
         cell.photoImageView.image = image
         return cell

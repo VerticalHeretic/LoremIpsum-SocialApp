@@ -22,6 +22,8 @@ class UserDetailsViewController: UIViewController {
     
     let coordinatesING = CLLocationCoordinate2DMake(50.265450, 19.017950)
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,8 @@ class UserDetailsViewController: UIViewController {
         self.websiteLabel.text = self.user.website
         
         self.navigationItem.title = "User: \(self.user.username)"
+        let photosBtn = UIBarButtonItem(title: "Photos", style: UIBarButtonItem.Style.plain, target: self, action: #selector(photoButtonSelector))
+        self.navigationItem.rightBarButtonItem = photosBtn
         
         let centerLocation = CLLocationCoordinate2DMake(Double(user.address.geo.lat)!, Double(user.address.geo.lng)!)
        
@@ -41,32 +45,13 @@ class UserDetailsViewController: UIViewController {
         self.map.setRegion(mapRegion, animated: true)
         
 
-    }
-    
-    //MARK: Orientation
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .portrait
-        } else {
-            return .all
-        }
-    }
-    
-    
-    //MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       switch(segue.identifier ?? "") {
-        case "fromUserToPhotos":
-            guard let photosVC = segue.destination as?
-                PhotosViewController else {
-                    fatalError("Unexpected sender: \(String(describing: sender)) ")
-            }
-            photosVC.user = self.user
-        default:
-            fatalError("Unexpected Segue Indentifier; \(String(describing: segue.identifier))")
         
-        }
     }
     
+    @objc func photoButtonSelector() {
+        let photoVC = PhotosViewController()
+        photoVC.user = self.user
+        self.navigationController?.pushViewController(photoVC, animated: true)
+    }
 
 }

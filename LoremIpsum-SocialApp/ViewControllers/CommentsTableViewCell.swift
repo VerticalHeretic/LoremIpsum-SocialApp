@@ -10,7 +10,8 @@ import UIKit
 
 class CommentsTableViewCell: UITableViewCell {
     //MARK: Properties
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var commenterLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
 
     override func awakeFromNib() {

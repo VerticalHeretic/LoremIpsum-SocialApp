@@ -1,25 +1,49 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k6z-t4-zr7">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="58O-Z6-ksQ">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="k6z-t4-zr7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cf8-aL-GTc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Social App" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nva-Ae-Lxu">
+                                <rect key="frame" x="25.5" y="84" width="363" height="36.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crayon-1030.png" translatesAutoresizingMaskIntoConstraints="NO" id="L25-ka-rGL" userLabel="launchImage">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Nva-Ae-Lxu" firstAttribute="top" secondItem="QIY-Xw-CwJ" secondAttribute="top" constant="40" id="5jh-Rq-dyR"/>
+                            <constraint firstItem="Nva-Ae-Lxu" firstAttribute="centerX" secondItem="Cf8-aL-GTc" secondAttribute="centerX" id="7iZ-lc-kT0"/>
+                            <constraint firstItem="L25-ka-rGL" firstAttribute="leading" secondItem="Cf8-aL-GTc" secondAttribute="leading" id="8mn-1J-9fC"/>
+                            <constraint firstAttribute="trailing" secondItem="L25-ka-rGL" secondAttribute="trailing" id="WAj-nO-ewz"/>
+                            <constraint firstItem="L25-ka-rGL" firstAttribute="top" secondItem="Cf8-aL-GTc" secondAttribute="top" id="btu-NU-PUl"/>
+                            <constraint firstAttribute="bottom" secondItem="L25-ka-rGL" secondAttribute="bottom" id="l5x-FJ-lLP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QIY-Xw-CwJ"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8mR-cd-U5r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-53.623188405797109" y="-95.089285714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="crayon-1030.png" width="912" height="912"/>
+    </resources>
 </document>

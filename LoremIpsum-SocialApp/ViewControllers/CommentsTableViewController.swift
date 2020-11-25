@@ -8,53 +8,49 @@
 
 import UIKit
 
-class CommentsTableViewController: UITableViewController {
+class CommentsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: Properties
     var postId : Int!
     var comments : [Comment] = []
-
+    
+    //MARK: Outlets
+    @IBOutlet weak var commentsTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        commentsTable.dataSource = self
+        commentsTable.delegate = self
+        
+        commentsTable.register(UINib(nibName: "CommentsTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentsTableViewCell")
+     
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
 
    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "CommentsTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CommentsTableViewCell else {
             fatalError("The dequeue cell is not an instance of \(cellIdentifier)")
         }
-        
+
         let comment = comments[indexPath.row]
         cell.bodyLabel.text = comment.body
-        cell.nameLabel.text = comment.name
-        // Configure the cell...
+        cell.titleLabel.text = comment.name
+        cell.commenterLabel.text = "By: \(comment.email)"
+
 
         return cell
     }
    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
