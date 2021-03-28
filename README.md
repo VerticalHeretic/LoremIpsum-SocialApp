@@ -5,5 +5,5 @@ Clone of my [previous project](https://github.com/LSWarss/ing_project) made in c
 
 App is simple fake social media app that uses https://jsonplaceholder.typicode.com/ as REST API and gives you ability to scroll through the posts and look over the users or comments.
 
-## Current look on app:
+## Demo
 ![](https://media.giphy.com/media/0MRvzofPqn05x49sMG/giphy.gif)
